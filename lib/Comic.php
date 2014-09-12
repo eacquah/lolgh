@@ -6,7 +6,7 @@
  * Time: 14:37
  */
 
-namespace Classes;
+namespace Lib;
 
 
 class Comic
