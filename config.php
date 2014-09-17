@@ -3,15 +3,16 @@
 define('BASE_PATH', realpath(dirname(__FILE__)));
 
 // Autoload Lib
-function __autoload($class) {
-    include (BASE_PATH . '/lib/' . str_replace('\\', '/', $class) . '.php');
+function __autoload($class)
+{
+    include(BASE_PATH . '/lib/' . str_replace('\\', '/', $class) . '.php');
 }
 
 // Get config from ini file
 $config = parse_ini_file(BASE_PATH . '/config/config.ini');
 
 // Set config params
-$dbFile     = BASE_PATH . $config['db']['file'];
+$dbFile          = BASE_PATH . $config['db']['file'];
 $twigLib         = BASE_PATH . $config['twig']['lib'];
 $twigTemplateDir = BASE_PATH . $config['twig']['template_dir'];
 $twigCacheDir    = BASE_PATH . $config['twig']['cache_dir'];
@@ -33,8 +34,9 @@ include('lib/Dao.php');
 
 //$MyPdo = new \classes\MyPDO('db/db.sqlite');
 $user = new \Lib\User();
-$db = new \Lib\Db($dbFile);
-$dao = new \Lib\Dao();
+$db   = new \Lib\Db($dbFile);
+$dao  = new \Lib\Dao();
 $dao->setDb($db);
-$dao->fetchAllComics();
-die();
+$allComics = $dao->fetchAll('comic');
+
+echo $twig->render('index.html', array('the' => 'variables', 'go' => 'here'));

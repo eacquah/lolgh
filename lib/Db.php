@@ -8,6 +8,10 @@
 
 namespace Lib;
 
+use \PDO as PDO;
+use \Exception as Exception;
+use \PDOException as PDOException;
+
 
 /*
 * SQLite3 Database Class
@@ -650,17 +654,21 @@ class Db
 * Written by Eli Sand. Sourced from PHP.net:
 * http://www.php.net/manual/en/pdostatement.rowcount.php#87110
 */
-class MyPDO extends PDO {
+
+class MyPDO extends PDO
+{
     private $queryString;
 
-    public function query(/* ... */) {
-        $args = func_get_args();
+    public function query( /* ... */)
+    {
+        $args              = func_get_args();
         $this->queryString = func_get_arg(0);
 
         return call_user_func_array(array(&$this, 'parent::query'), $args);
     }
 
-    public function rowCount() {
+    public function rowCount()
+    {
         $regex = '/^SELECT\s+(?:ALL\s+|DISTINCT\s+)?(?:.*?)\s+FROM\s+(.*)$/i';
         if (preg_match($regex, $this->queryString, $output) > 0) {
             $stmt = parent::query("SELECT COUNT(*) FROM {$output[1]}", PDO::FETCH_NUM);
