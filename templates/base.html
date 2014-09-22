@@ -6,35 +6,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>{% block title %}{% endblock %} - My Webpage</title>
     <link rel="stylesheet" href="/stylesheets/app.css"/>
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
     <script src="/bower_components/modernizr/modernizr.js"></script>
     {% endblock %}
 </head>
 <body>
 
 <header>
-    <nav class="top-bar" data-topbar role="navigation">
-        <ul class="title-area">
-            <li class="name">
-                <h1><a href="#">My Site</a></h1></li>
-            <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
-            <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
-        </ul>
-        <section class="top-bar-section"> <!-- Right Nav Section -->
-            <ul class="right">
-                <li class="active"><a href="#">Right Button Active</a></li>
-                <li class="has-dropdown"><a href="#">Right Button Dropdown</a>
-                    <ul class="dropdown">
-                        <li><a href="#">First link in dropdown</a></li>
-                        <li class="active"><a href="#">Active link in dropdown</a></li>
-                    </ul>
+    <div class="contain-to-grid">
+        <nav class="top-bar" data-topbar role="navigation">
+            <ul class="title-area">
+                <li class="name">
+                    <h1><a href="#">My Site</a></h1>
                 </li>
             </ul>
-            <!-- Left Nav Section -->
-            <ul class="left">
-                <li><a href="#">Left Nav Button</a></li>
-            </ul>
-        </section>
-    </nav>
+            <section class="top-bar-section"> <!-- Right Nav Section -->
+                <ul class="right">
+                    <li><a href="/">Home</a></li>
+                    <li class="active"><a href="/comic">Comics</a></li>
+                    <li><a href="/toon">Toons</a></li>
+                    <li><a href="/contact">Contact</a></li>
+                </ul>
+            </section>
+        </nav>
+    </div>
+
 </header>
 
 <div id="content">
@@ -46,23 +42,22 @@
         {% block footer %}
         <div class="panel">
             <div class="row">
-                <div class="medium-6 large-6 columns">© Copyright no one at all. Go to town.</div>
+                <div class="medium-6 large-6 columns">My Site © {{ "now"|date("Y") }} . Powered by SpacebarWeb</div>
                 <div class="medium-6 large-6 columns">
                     <ul class="inline-list right">
-                        <li><a href="#">link</a></li>
-                        <li><a href="#">link</a></li>
-                        <li><a href="#">link</a></li>
-                        <li><a href="#">link</a></li>
+                        <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                        <li><a href="#"><i class="fa fa-twitter"></i></a></li>
                     </ul>
                 </div>
             </div>
         </div>
-        <script src="/bower_components/jquery/dist/jquery.min.js"></script>
-        <script src="/bower_components/foundation/js/foundation.min.js"></script>
-        <script src="/js/app.js"></script>
         {% endblock %}
     </div>
 </footer>
+
+<script src="/bower_components/jquery/dist/jquery.min.js"></script>
+<script src="/bower_components/foundation/js/foundation.min.js"></script>
+<script src="/js/app.js"></script>
 
 </body>
 </html>

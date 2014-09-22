@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block title %}Index{% endblock %}
+{% block head %}
+{{ parent() }}
+{% endblock %}
+{% block content %}
+
+<div class="row">
+
+    <div class="large-12 columns">
+
+        <div class="section-container tabs" data-section>
+            <section class="section">
+                <h3 class="title">Get in touch</h3>
+                <div class="content" data-slug="panel2">
+                    <ul class="large-block-grid-5">
+                        <li><a href="mailto:mal@serenity.bc.reb"><img src="http://placehold.it/200x200&text=[person]">Mal Reynolds</a></li>
+                        <li><a href="mailto:zoe@serenity.bc.reb"><img src="http://placehold.it/200x200&text=[person]">Zoe Washburne</a></li>
+                    </ul>
+                </div>
+            </section>
+        </div>
+    </div>
+
+</div>
+
+{% endblock %}

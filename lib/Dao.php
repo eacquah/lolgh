@@ -100,10 +100,14 @@ class Dao
         $index     = strtolower($table) . '_id';
         $className = '\Lib\\' . ucfirst(strtolower($table));
         $query     = "SELECT * FROM $table
-                    WHERE $index = $id";
+                      WHERE $index = $id";
         $row       = $this->getDb()->get_row($query);
 
-        return $$this->build($className, $row);
+        if ($row) {
+            return $this->build($className, $row);
+        } else {
+            return null;
+        }
     }
 
     /**
@@ -122,7 +126,29 @@ class Dao
         foreach ($rows as $row) {
             $results[] = $this->build($className, $row);
         }
-
         return $results;
+    }
+
+    /**
+     * Fetches the most recent result from a table as an object
+     *
+     * @param $table
+     *
+     * @return array
+     */
+    public function fetchRecent($table)
+    {
+        $index     = strtolower($table) . '_id';
+        $className = '\Lib\\' . ucfirst(strtolower($table));
+        $query     = "SELECT * FROM $table
+                        ORDER BY $index DESC
+                        LIMIT 1";
+        $row       = $this->getDb()->get_row($query);
+        if ($row) {
+            return $this->build($className, $row);
+        } else {
+            return null;
+        }
+
     }
 } 

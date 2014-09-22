@@ -22,12 +22,13 @@ require_once $twigLib . '/Twig/Autoloader.php';
 Twig_Autoloader::register();
 $loader = new Twig_Loader_Filesystem($twigTemplateDir);
 $twig   = new Twig_Environment($loader, array(
-    'cache' => $twigCacheDir,
+//    'cache' => $twigCacheDir,
 ));
 
 // Temp inc since autoloader not working
 include('lib/User.php');
 include('lib/Comic.php');
 include('lib/Db.php');
+include('lib/Toon.php');
 include('lib/Dao.php');
 
