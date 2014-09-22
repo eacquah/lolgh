@@ -1,4 +1,4 @@
-{% extends "base.html" %}
+{% extends "@frontend/base.html" %}
 
 {% block title %}Index{% endblock %}
 {% block head %}
@@ -33,21 +33,7 @@
         </div>
     </div>
 
-    <div class="large-3 medium-3 columns">
-        <div class="panel">
-            <h5>So many components, girl!</h5>
+    {% include '@frontend/sidebar.html' %}
 
-            <p>A whole kitchen sink of goodies comes with Foundation. Check out the docs to see them all, along with
-                details on making them your own.</p>
-            <a href="http://foundation.zurb.com/docs/" class="small button">Go to Foundation Docs</a>
-        </div>
-        <div class="panel">
-            <h5>So many components, girl!</h5>
-
-            <p>A whole kitchen sink of goodies comes with Foundation. Check out the docs to see them all, along with
-                details on making them your own.</p>
-            <a href="http://foundation.zurb.com/docs/" class="small button">Go to Foundation Docs</a>
-        </div>
-    </div>
 </div>
 {% endblock %}

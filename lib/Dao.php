@@ -60,6 +60,7 @@ class Dao
 
     /**
      * Builds method name from field
+     *
      * @param $dbField
      *
      * @return string
@@ -91,7 +92,7 @@ class Dao
 
     /**
      * @param string $table
-     * @param int $id
+     * @param int    $id
      *
      * @return array
      */
@@ -126,6 +127,7 @@ class Dao
         foreach ($rows as $row) {
             $results[] = $this->build($className, $row);
         }
+
         return $results;
     }
 
@@ -149,6 +151,84 @@ class Dao
         } else {
             return null;
         }
+    }
 
+    /**
+     * Fetches the first result from a table as an object
+     *
+     * @param $table
+     *
+     * @return array
+     */
+    public function fetchFirst($table)
+    {
+        $index     = strtolower($table) . '_id';
+        $className = '\Lib\\' . ucfirst(strtolower($table));
+        $query     = "SELECT * FROM $table
+                        ORDER BY $index ASC
+                        LIMIT 1";
+        $row       = $this->getDb()->get_row($query);
+        if ($row) {
+            return $this->build($className, $row);
+        } else {
+            return null;
+        }
+    }
+
+    public function fetchNext($table, $id)
+    {
+        $index     = strtolower($table) . '_id';
+        $className = '\Lib\\' . ucfirst(strtolower($table));
+        $query     = "SELECT * FROM $table
+                      WHERE $index > $id
+                      ORDER BY $index ASC
+                      LIMIT 1";
+        $row       = $this->getDb()->get_row($query);
+
+        if ($row) {
+            return $this->build($className, $row);
+        } else {
+            return null;
+        }
+    }
+
+    public function fetchPrevious($table, $id)
+    {
+        $index     = strtolower($table) . '_id';
+        $className = '\Lib\\' . ucfirst(strtolower($table));
+        $query     = "SELECT * FROM $table
+                      WHERE $index < $id
+                      ORDER BY $index DESC
+                      LIMIT 1";
+        $row       = $this->getDb()->get_row($query);
+
+        if ($row) {
+            return $this->build($className, $row);
+        } else {
+            return null;
+        }
+    }
+
+    public function fetchRandom($table)
+    {
+        $className = '\Lib\\' . ucfirst(strtolower($table));
+        $query     = "SELECT * FROM $table
+                      ORDER BY RANDOM()
+                      LIMIT 1";
+        $row       = $this->getDb()->get_row($query);
+
+        if ($row) {
+            return $this->build($className, $row);
+        } else {
+            return null;
+        }
+    }
+
+    public function getTotal($table)
+    {
+        $query = "SELECT COUNT(*) AS total FROM $table";
+        $row   = $this->getDb()->get_row($query);
+
+        return (int)$row->total;
     }
 } 

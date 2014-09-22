@@ -15,11 +15,13 @@ $vars     = array();
 
 switch ($page) {
     case '':
-        $template = 'index.html';
+        $template = '@frontend/index.html';
         break;
+
     case 'contact':
-        $template = 'contact.html';
+        $template = '@frontend/contact.html';
         break;
+
     case 'toon':
         $toon = null;
         if ($param > 0) {
@@ -28,30 +30,50 @@ switch ($page) {
             $toon = $dao->fetchRecent('toon');
         }
         if ($toon) {
-            $template = 'toon.html';
-            $toons = $dao->fetchAll('toon');
+            $template = '@frontend/toon.html';
+            $toons    = $dao->fetchAll('toon');
             $vars     = array(
-                'toon' => $toon,
+                'toon'  => $toon,
                 'toons' => $toons
             );
         }
         break;
+
     case 'comic':
         $comic    = null;
-        $template = 'comic.html';
+        $template = '@frontend/comic.html';
         if ($param > 0) {
             $comic = $dao->findById('comic', $param);
         } else {
             $comic = $dao->fetchRecent('comic');
         }
-        $vars = array(
-            'comic' => $comic
-        );
+        if ($comic) {
+            $comicId = $comic->getComicId();
+            $total   = $dao->getTotal('comic');
+            $first   = $dao->fetchFirst('comic');
+            $last    = $dao->fetchRecent('comic');
+            $prev    = $dao->fetchPrevious('comic', $comicId);
+            $next    = $dao->fetchNext('comic', $comicId);
+            $rand    = $dao->fetchRandom('comic');
+            $vars    = array(
+                'comic' => $comic,
+                'first' => $first,
+                'last'  => $last,
+                'prev'  => $prev,
+                'next'  => $next,
+                'rand'  => $rand,
+                'total' => $total,
+            );
+        }
+        break;
+
+    case 'admin':
+        $template = '@admin/index.html';
         break;
 }
 
 if (null === $template) {
-    $template = '404.html';
+    $template = '@frontend/404.html';
 }
 
 // Render template

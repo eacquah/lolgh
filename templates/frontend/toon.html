@@ -1,0 +1,44 @@
+{% extends "@frontend/base.html" %}
+
+{% block title %}Index{% endblock %}
+{% block head %}
+{{ parent() }}
+{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="large-9 medium-9 columns">
+        <!--<div class="flex-video widescreen vimeo">-->
+            <!--<iframe width="560" height="315" src="//www.youtube.com/embed/{{ toon.url }}" frameborder="0"-->
+                    <!--webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>-->
+        <!--</div>-->
+        <img src="http://placehold.it/1000x500&text=[img]"/>
+        <hr>
+
+        <div class="row">
+            <ul class="example-orbit" data-orbit>
+                {% if toons|length %}
+                    {% for row in toons|batch(3) %}
+                        <li>
+                            <ul class="small-block-grid-3">
+                                {% for column in row if row.toon%}
+                                <li>
+                                    <!--<a href="/toon/{{ column.toonId }}">-->
+                                        <!--<img src="http://img.youtube.com/vi/{{ column.url }}/mqdefault.jpg"/>-->
+                                        <!--<p>{{ column.title }}</p>-->
+                                    <!--</a>-->
+                                    <img src="http://placehold.it/400x300&text=[img]"/>
+                                </li>
+                                {% endfor %}
+                            </ul>
+                        </li>
+                    {% endfor %}
+                {% endif %}
+            </ul>
+        </div>
+    </div>
+
+    {% include '@frontend/sidebar.html' %}
+
+</div>
+{% endblock %}

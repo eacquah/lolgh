@@ -3,9 +3,8 @@
 define('BASE_PATH', realpath(dirname(__FILE__)));
 
 // Autoload Lib
-function __autoload($class)
-{
-    include(BASE_PATH . '/lib/' . str_replace('\\', '/', $class) . '.php');
+function __autoload($class) {
+  include(BASE_PATH . '/lib/' . str_replace('\\', '/', $class) . '.php');
 }
 
 // Get config from ini file
@@ -21,8 +20,10 @@ $twigCacheDir    = BASE_PATH . $config['twig']['cache_dir'];
 require_once $twigLib . '/Twig/Autoloader.php';
 Twig_Autoloader::register();
 $loader = new Twig_Loader_Filesystem($twigTemplateDir);
-$twig   = new Twig_Environment($loader, array(
-//    'cache' => $twigCacheDir,
+$loader->addPath($twigTemplateDir . '/frontend', 'frontend');
+$loader->addPath($twigTemplateDir . '/admin', 'admin');
+$twig = new Twig_Environment($loader, array(
+  //    'cache' => $twigCacheDir,
 ));
 
 // Temp inc since autoloader not working

@@ -1,0 +1,36 @@
+{% extends "@frontend/base.html" %}
+
+{% block title %}Index{% endblock %}
+{% block head %}
+{{ parent() }}
+{% endblock %}
+{% block content %}
+<div class="row">
+    <div class="large-9 medium-9 columns">
+            <div class="row">
+                <div class="large-5 columns">
+                    {{ comic.title }} posted on {{ comic.releaseDate | date("Y-m-d") }}
+                </div>
+                <div class="large-6 columns">
+                    <ul class="button-group right-align">
+                        <li><a href="/comic/{{ first.comicId }}" class="small button {% if prev is empty %} disabled {% endif %}"><i class="fa fa-angle-double-left"></i></a></li>
+                        <li><a href="/comic/{{ prev.comicId }}" class="small button {% if prev is empty %} disabled {% endif %}"><i class="fa fa-angle-left"></i></a></li>
+                        <li><a href="/comic/{{ next.comicId }}" class="small button {% if next is empty %} disabled {% endif %}"><i class="fa fa-angle-right"></i></a></li>
+                        <li><a href="/comic/{{ last.comicId }}" class="small button {% if next is empty %} disabled {% endif %}"><i class="fa fa-angle-double-right"></i></a></li>
+                        <li><a href="/comic/{{ rand.comicId }}" class="small button"><i class="fa fa-refresh"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+            <!--<img src="http://lolgh.com/cms/{{ comic.url }}"/>-->
+            <img src="http://placehold.it/1000x800&text=[img]">
+            <br/><br/>
+            <div class="row">
+                <!-- Go to www.addthis.com/dashboard to customize your tools -->
+                <div class="addthis_responsive_sharing"></div>
+            </div>
+    </div>
+
+    {% include '@frontend/sidebar.html' %}
+
+</div>
+{% endblock %}
