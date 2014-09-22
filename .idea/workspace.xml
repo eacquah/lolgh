@@ -2,21 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e839cc68-9d74-4a0d-aea1-262f21ad8e9c" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/scss/_layout.scss" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/templates/frontend/base.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/templates/admin/index.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/templates/frontend/sidebar.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/templates/404.html" afterPath="$PROJECT_DIR$/templates/frontend/404.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/templates/base.html" afterPath="$PROJECT_DIR$/templates/admin/base.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/templates/comic.html" afterPath="$PROJECT_DIR$/templates/frontend/comic.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/templates/contact.html" afterPath="$PROJECT_DIR$/templates/frontend/contact.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/templates/index.html" afterPath="$PROJECT_DIR$/templates/frontend/index.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/templates/toon.html" afterPath="$PROJECT_DIR$/templates/frontend/toon.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/Dao.php" afterPath="$PROJECT_DIR$/lib/Dao.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/codeStyleSettings.xml" afterPath="$PROJECT_DIR$/.idea/codeStyleSettings.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config.php" afterPath="$PROJECT_DIR$/config.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/lib/Twitter.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/templates/admin/add-comic.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/templates/admin/add-toon.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db/lolgh.db" afterPath="$PROJECT_DIR$/db/lolgh.db" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/scss/_footer.scss" afterPath="$PROJECT_DIR$/scss/_footer.scss" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/frontend/base.html" afterPath="$PROJECT_DIR$/templates/frontend/base.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/frontend/comic.html" afterPath="$PROJECT_DIR$/templates/frontend/comic.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/frontend/index.html" afterPath="$PROJECT_DIR$/templates/frontend/index.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.php" afterPath="$PROJECT_DIR$/index.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/testproject.iml" afterPath="$PROJECT_DIR$/.idea/testproject.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="testproject.iws" />
@@ -40,19 +34,37 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="contact.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/frontend/contact.html">
+      <file leaf-file-name="comic.html" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/frontend/comic.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="14" column="51" selection-start="344" selection-end="344" vertical-scroll-proportion="-9.333333" vertical-offset="0" max-vertical-offset="612">
+            <state line="23" column="68" selection-start="1454" selection-end="1454" vertical-scroll-proportion="-15.333333" vertical-offset="0" max-vertical-offset="720">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="comic.html" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/templates/frontend/comic.html">
+      <file leaf-file-name="add-comic.html" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/admin/add-comic.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="24" column="43" selection-start="1498" selection-end="1498" vertical-scroll-proportion="0.49315068" vertical-offset="0" max-vertical-offset="876">
+            <state line="8" column="17" selection-start="156" selection-end="156" vertical-scroll-proportion="-5.3333335" vertical-offset="0" max-vertical-offset="1458">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.php" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/index.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="68" column="1" selection-start="1907" selection-end="1907" vertical-scroll-proportion="0.60958904" vertical-offset="690" max-vertical-offset="1674">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="add-toon.html" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/admin/add-toon.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="74" column="11" selection-start="2712" selection-end="2712" vertical-scroll-proportion="-31.11111" vertical-offset="492" max-vertical-offset="1512">
               <folding />
             </state>
           </provider>
@@ -70,16 +82,7 @@
       <file leaf-file-name="base.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/frontend/base.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="59" column="114" selection-start="2130" selection-end="2130" vertical-scroll-proportion="-28.444445" vertical-offset="294" max-vertical-offset="1314">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="base.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/admin/base.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="15" column="33" selection-start="527" selection-end="527" vertical-scroll-proportion="-10.0" vertical-offset="0" max-vertical-offset="972">
+            <state line="66" column="0" selection-start="2311" selection-end="2311" vertical-scroll-proportion="-31.11111" vertical-offset="348" max-vertical-offset="1332">
               <folding />
             </state>
           </provider>
@@ -88,52 +91,34 @@
       <file leaf-file-name="index.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/admin/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="6" column="19" selection-start="137" selection-end="137" vertical-scroll-proportion="-4.0" vertical-offset="0" max-vertical-offset="810">
+            <state line="10" column="40" selection-start="198" selection-end="198" vertical-scroll-proportion="-6.6666665" vertical-offset="0" max-vertical-offset="810">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="sidebar.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/frontend/sidebar.html">
+      <file leaf-file-name="_footer.scss" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/scss/_footer.scss">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="15" column="6" selection-start="723" selection-end="723" vertical-scroll-proportion="-10.0" vertical-offset="0" max-vertical-offset="378">
+            <state line="8" column="18" selection-start="109" selection-end="109" vertical-scroll-proportion="-2.7692308" vertical-offset="0" max-vertical-offset="288">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="_layout.scss" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/scss/_layout.scss">
+      <file leaf-file-name="Twitter.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/lib/Twitter.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="3" column="1" selection-start="50" selection-end="50" vertical-scroll-proportion="-1.0384616" vertical-offset="0" max-vertical-offset="162">
+            <state line="10" column="8" selection-start="383" selection-end="383" vertical-scroll-proportion="-6.6666665" vertical-offset="0" max-vertical-offset="15732">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Dao.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/lib/Dao.php">
+      <file leaf-file-name="Toon.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/lib/Toon.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="194" column="46" selection-start="4336" selection-end="4336" vertical-scroll-proportion="-12.444445" vertical-offset="3012" max-vertical-offset="4158">
-              <folding>
-                <marker date="1411396620243" expanded="true" signature="1860:1921" placeholder="SELECT * FRO..$table&#10;                      WHERE..." />
-                <marker date="1411396620243" expanded="true" signature="2388:2408" placeholder="SELECT * FRO..." />
-                <marker date="1411396620243" expanded="true" signature="2914:3011" placeholder="SELECT * FRO..$table&#10;                        ORDER..." />
-                <marker date="1411396620243" expanded="true" signature="3505:3601" placeholder="SELECT * FRO..$table&#10;                        ORDER..." />
-                <marker date="1411396620243" expanded="true" signature="3969:4102" placeholder="SELECT * FRO..$table&#10;                      WHERE..." />
-                <marker date="1411396620243" expanded="true" signature="4475:4609" placeholder="SELECT * FRO..$table&#10;                      WHERE..." />
-                <marker date="1411396620243" expanded="true" signature="4926:5016" placeholder="SELECT * FRO..$table&#10;                      ORDER..." />
-                <marker date="1411396620243" expanded="true" signature="5265:5301" placeholder="SELECT COUNT..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="404.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/frontend/404.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="12" selection-start="12" selection-end="22" vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="324">
+            <state line="5" column="14" selection-start="81" selection-end="81" vertical-scroll-proportion="-0.6666667" vertical-offset="72" max-vertical-offset="2214">
               <folding />
             </state>
           </provider>
@@ -174,21 +159,24 @@
         <option value="$PROJECT_DIR$/templates/base.html" />
         <option value="$PROJECT_DIR$/templates/toon.html" />
         <option value="$PROJECT_DIR$/templates/index.html" />
-        <option value="$PROJECT_DIR$/scss/_footer.scss" />
         <option value="$PROJECT_DIR$/templates/comic.html" />
         <option value="$PROJECT_DIR$/templates/frontend/404.html" />
         <option value="$PROJECT_DIR$/config.php" />
-        <option value="$PROJECT_DIR$/templates/frontend/index.html" />
         <option value="$PROJECT_DIR$/templates/frontend/sidebar.html" />
         <option value="$PROJECT_DIR$/scss/_layout.scss" />
         <option value="$PROJECT_DIR$/templates/frontend/toon.html" />
         <option value="$PROJECT_DIR$/templates/admin/base.html" />
         <option value="$PROJECT_DIR$/templates/frontend/contact.html" />
         <option value="$PROJECT_DIR$/templates/admin/index.html" />
-        <option value="$PROJECT_DIR$/templates/frontend/base.html" />
-        <option value="$PROJECT_DIR$/index.php" />
         <option value="$PROJECT_DIR$/lib/Dao.php" />
+        <option value="$PROJECT_DIR$/templates/frontend/index.html" />
+        <option value="$PROJECT_DIR$/scss/_footer.scss" />
+        <option value="$PROJECT_DIR$/lib/Twitter.php" />
+        <option value="$PROJECT_DIR$/templates/frontend/base.html" />
         <option value="$PROJECT_DIR$/templates/frontend/comic.html" />
+        <option value="$PROJECT_DIR$/templates/admin/add_comic.html" />
+        <option value="$PROJECT_DIR$/templates/admin/add_toon.html" />
+        <option value="$PROJECT_DIR$/index.php" />
       </list>
     </option>
   </component>
@@ -257,10 +245,6 @@
               <option name="myItemId" value="templates" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="frontend" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -273,6 +257,10 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="templates" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="admin" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -300,7 +288,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="lib" />
+              <option name="myItemId" value="scss" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -319,8 +307,8 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/scss" />
       <recent name="$PROJECT_DIR$/templates/admin" />
+      <recent name="$PROJECT_DIR$/scss" />
       <recent name="$PROJECT_DIR$/templates" />
       <recent name="$PROJECT_DIR$/lib" />
       <recent name="$PROJECT_DIR$/templates/common" />
@@ -413,25 +401,6 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/lib/User.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="0" selection-start="87" selection-end="101" vertical-scroll-proportion="0.0" vertical-offset="144" max-vertical-offset="2232" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/Comic.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="3" column="14" selection-start="48" selection-end="48" vertical-scroll-proportion="0.0" vertical-offset="54" max-vertical-offset="2214">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/Dao.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="105" column="29" selection-start="1996" selection-end="1996" vertical-scroll-proportion="0.0" vertical-offset="1890" max-vertical-offset="2394">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/index.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="9" column="25" selection-start="242" selection-end="242" vertical-scroll-proportion="0.0" vertical-offset="162" max-vertical-offset="270" />
@@ -607,34 +576,6 @@
         <state line="8" column="0" selection-start="87" selection-end="101" vertical-scroll-proportion="43.041668" vertical-offset="1078" max-vertical-offset="1785" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/scss/_footer.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="1" column="18" selection-start="27" selection-end="27" vertical-scroll-proportion="0.0" vertical-offset="18" max-vertical-offset="288">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/Toon.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="14" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2124">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/frontend/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="36" column="0" selection-start="1547" selection-end="1547" vertical-scroll-proportion="-24.0" vertical-offset="0" max-vertical-offset="792">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/frontend/sidebar.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="6" selection-start="723" selection-end="723" vertical-scroll-proportion="-10.0" vertical-offset="0" max-vertical-offset="378">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/config.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="23" column="55" selection-start="822" selection-end="822" vertical-scroll-proportion="-15.333333" vertical-offset="0" max-vertical-offset="738">
@@ -649,30 +590,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/admin/base.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="33" selection-start="527" selection-end="527" vertical-scroll-proportion="-10.0" vertical-offset="0" max-vertical-offset="972">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/admin/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="19" selection-start="137" selection-end="137" vertical-scroll-proportion="-4.0" vertical-offset="0" max-vertical-offset="810">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/lib/Comic.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="3" column="14" selection-start="48" selection-end="48" vertical-scroll-proportion="0.020547945" vertical-offset="36" max-vertical-offset="2214">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/scss/_layout.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="3" column="1" selection-start="50" selection-end="50" vertical-scroll-proportion="-1.0384616" vertical-offset="0" max-vertical-offset="162">
           <folding />
         </state>
       </provider>
@@ -693,6 +613,43 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/lib/Dao.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="194" column="46" selection-start="4336" selection-end="4336" vertical-scroll-proportion="-12.444445" vertical-offset="3012" max-vertical-offset="4158">
+          <folding>
+            <marker date="1411396620243" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..$table&#10;                      WHERE..." />
+            <marker date="1411396620243" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..." />
+            <marker date="1411396620243" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..$table&#10;                        ORDER..." />
+            <marker date="1411396620243" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..$table&#10;                        ORDER..." />
+            <marker date="1411396620243" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..$table&#10;                      WHERE..." />
+            <marker date="1411396620243" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..$table&#10;                      WHERE..." />
+            <marker date="1411396620243" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..$table&#10;                      ORDER..." />
+            <marker date="1411396620243" expanded="true" signature="-1:-1" placeholder="SELECT COUNT..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scss/_layout.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="3" column="1" selection-start="50" selection-end="50" vertical-scroll-proportion="-1.0384616" vertical-offset="0" max-vertical-offset="162">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/frontend/sidebar.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="15" column="6" selection-start="723" selection-end="723" vertical-scroll-proportion="-10.0" vertical-offset="0" max-vertical-offset="378">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/admin/base.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="15" column="33" selection-start="527" selection-end="527" vertical-scroll-proportion="-10.0" vertical-offset="0" max-vertical-offset="972">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/templates/frontend/toon.html">
       <provider selected="true" editor-type-id="text-editor">
         <state line="16" column="0" selection-start="563" selection-end="563" vertical-scroll-proportion="-10.666667" vertical-offset="0" max-vertical-offset="882">
@@ -700,39 +657,72 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/templates/frontend/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="15" column="12" selection-start="788" selection-end="788" vertical-scroll-proportion="0.3128621" vertical-offset="0" max-vertical-offset="863">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/Toon.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="5" column="14" selection-start="81" selection-end="81" vertical-scroll-proportion="-0.6666667" vertical-offset="72" max-vertical-offset="2214">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/Twitter.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="10" column="8" selection-start="383" selection-end="383" vertical-scroll-proportion="-6.6666665" vertical-offset="0" max-vertical-offset="15732">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/templates/frontend/base.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="59" column="114" selection-start="2130" selection-end="2130" vertical-scroll-proportion="-28.444445" vertical-offset="294" max-vertical-offset="1314">
+        <state line="66" column="0" selection-start="2311" selection-end="2311" vertical-scroll-proportion="-31.11111" vertical-offset="348" max-vertical-offset="1332">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scss/_footer.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="8" column="18" selection-start="109" selection-end="109" vertical-scroll-proportion="-2.7692308" vertical-offset="0" max-vertical-offset="288">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/admin/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="10" column="40" selection-start="198" selection-end="198" vertical-scroll-proportion="-6.6666665" vertical-offset="0" max-vertical-offset="810">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/frontend/comic.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="23" column="68" selection-start="1454" selection-end="1454" vertical-scroll-proportion="-15.333333" vertical-offset="0" max-vertical-offset="720">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/admin/add-comic.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="8" column="17" selection-start="156" selection-end="156" vertical-scroll-proportion="-5.3333335" vertical-offset="0" max-vertical-offset="1458">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/admin/add-toon.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="74" column="11" selection-start="2712" selection-end="2712" vertical-scroll-proportion="-31.11111" vertical-offset="492" max-vertical-offset="1512">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/index.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="54" column="42" selection-start="1451" selection-end="1464" vertical-scroll-proportion="-24.11111" vertical-offset="321" max-vertical-offset="1530">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/Dao.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="194" column="46" selection-start="4336" selection-end="4336" vertical-scroll-proportion="-12.444445" vertical-offset="3012" max-vertical-offset="4158">
-          <folding>
-            <marker date="1411396620243" expanded="true" signature="1860:1921" placeholder="SELECT * FRO..$table&#10;                      WHERE..." />
-            <marker date="1411396620243" expanded="true" signature="2388:2408" placeholder="SELECT * FRO..." />
-            <marker date="1411396620243" expanded="true" signature="2914:3011" placeholder="SELECT * FRO..$table&#10;                        ORDER..." />
-            <marker date="1411396620243" expanded="true" signature="3505:3601" placeholder="SELECT * FRO..$table&#10;                        ORDER..." />
-            <marker date="1411396620243" expanded="true" signature="3969:4102" placeholder="SELECT * FRO..$table&#10;                      WHERE..." />
-            <marker date="1411396620243" expanded="true" signature="4475:4609" placeholder="SELECT * FRO..$table&#10;                      WHERE..." />
-            <marker date="1411396620243" expanded="true" signature="4926:5016" placeholder="SELECT * FRO..$table&#10;                      ORDER..." />
-            <marker date="1411396620243" expanded="true" signature="5265:5301" placeholder="SELECT COUNT..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/frontend/comic.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="24" column="43" selection-start="1498" selection-end="1498" vertical-scroll-proportion="0.49315068" vertical-offset="0" max-vertical-offset="876">
+        <state line="68" column="1" selection-start="1907" selection-end="1907" vertical-scroll-proportion="0.60958904" vertical-offset="690" max-vertical-offset="1674">
           <folding />
         </state>
       </provider>

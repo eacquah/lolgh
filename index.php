@@ -66,10 +66,18 @@ switch ($page) {
             );
         }
         break;
+}
 
-    case 'admin':
-        $template = '@admin/index.html';
-        break;
+if ($page === 'admin') {
+    switch($param) {
+        case '':
+            $template = '@admin/index.html';
+            break;
+
+        case 'add-comic':
+            $template = '@admin/add-comic.html';
+            break;
+    }
 }
 
 if (null === $template) {
