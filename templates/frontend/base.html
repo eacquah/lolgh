@@ -22,10 +22,31 @@
             </ul>
             <section class="top-bar-section"> <!-- Right Nav Section -->
                 <ul class="right">
-                    <li><a href="/">Home</a></li>
-                    <li class="active"><a href="/comic">Comics</a></li>
-                    <li><a href="/toon">Toons</a></li>
-                    <li><a href="/contact">Contact</a></li>
+
+                    {% if page == '' %}
+                        <li class="active"><a href="/">Home</a></li>
+                    {% else %}
+                        <li><a href="/">Home</a></li>
+                    {% endif %}
+
+                    {% if page == 'comic' %}
+                        <li class="active"><a href="/comic">Comics</a></li>
+                    {% else %}
+                        <li><a href="/comic">Comics</a></li>
+                    {% endif %}
+
+                    {% if page == 'toon' %}
+                        <li class="active"><a href="/toon">Toons</a></li>
+                    {% else %}
+                        <li><a href="/toon">Toons</a></li>
+                    {% endif %}
+
+                    {% if page == 'contact' %}
+                        <li class="active"><a href="/contact">Contact</a></li>
+                    {% else %}
+                        <li><a href="/contact">Contact</a></li>
+                    {% endif %}
+
                 </ul>
             </section>
         </nav>

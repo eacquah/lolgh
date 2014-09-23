@@ -7,8 +7,8 @@ $dao  = new \Lib\Dao();
 $dao->setDb($db);
 
 
-$page  = isset($_GET['page']) ? strip_tags($_GET['page']) : 0;
-$param = isset($_GET['param']) ? (int)$_GET['param'] : '';
+$page  = isset($_GET['page']) ? strip_tags($_GET['page']) : '';
+$param = isset($_GET['param']) ? (int)$_GET['param'] : 0;
 
 $template = null;
 $vars     = array();
@@ -83,6 +83,9 @@ if ($page === 'admin') {
 if (null === $template) {
     $template = '@frontend/404.html';
 }
+
+// Set current page for template
+$vars['page'] = $page;
 
 // Render template
 echo $twig->render($template, $vars);
