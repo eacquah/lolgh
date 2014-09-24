@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<head>
+    {% block head %}
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>{% block title %}{% endblock %} - My Webpage</title>
+    <link rel="stylesheet" href="/stylesheets/app.css"/>
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+    <script src="/bower_components/modernizr/modernizr.js"></script>
+    {% endblock %}
+</head>
+<body>
+
+<div class="row">
+    <div class="large-12 columns">
+
+        <nav class="top-bar" data-topbar>
+            <ul class="title-area">
+
+                <li class="name">
+                    <h1>
+                        <a href="#">
+                            Top Bar Title
+                        </a>
+                    </h1>
+                </li>
+                <li class="toggle-topbar menu-icon"><a href="#"><span>menu</span></a></li>
+            </ul>
+        </nav>
+
+    </div>
+</div>
+
+
+
+<div class="row">
+
+        <form>
+            <div class="row collapse">
+                <div class="small-3 large-2 columns">
+                    <span class="prefix">http://</span>
+                </div>
+                <div class="small-9 large-10 columns">
+                    <input type="text" placeholder="Enter your URL...">
+                </div>
+            </div>
+            <div class="row">
+                <div class="large-12 columns">
+                    <div class="row collapse">
+                        <div class="small-10 columns">
+                            <input type="text" placeholder="Hex Value">
+                        </div>
+                        <div class="small-2 columns">
+                            <a href="#" class="button postfix">Go</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="large-6 columns">
+                    <div class="row collapse prefix-radius">
+                        <div class="small-3 columns">
+                            <span class="prefix">Label</span>
+                        </div>
+                        <div class="small-9 columns">
+                            <input type="text" placeholder="Value">
+                        </div>
+                    </div>
+                </div>
+                <div class="large-6 columns">
+                    <div class="row collapse postfix-radius">
+                        <div class="small-9 columns">
+                            <input type="text" placeholder="Value">
+                        </div>
+                        <div class="small-3 columns">
+                            <span class="postfix">Label</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="large-6 columns">
+                    <div class="row collapse prefix-round">
+                        <div class="small-3 columns">
+                            <a href="#" class="button prefix">Go</a>
+                        </div>
+                        <div class="small-9 columns">
+                            <input type="text" placeholder="Value">
+                        </div>
+                    </div>
+                </div>
+                <div class="large-6 columns">
+                    <div class="row collapse postfix-round">
+                        <div class="small-9 columns">
+                            <input type="text" placeholder="Value">
+                        </div>
+                        <div class="small-3 columns">
+                            <a href="#" class="button postfix">Go</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+
+
+</div>
+
+
+
+
+<footer class="row">
+    <div class="large-12 columns"><hr/>
+        <div class="row">
+            {% block footer %}
+            <div class="large-6 columns">
+                <p>© Copyright no one at all. Go to town.</p>
+            </div>
+
+            <div class="large-6 columns">
+                <ul class="inline-list right">
+                    <li><a href="#">Link 1</a></li>
+                    <li><a href="#">Link 2</a></li>
+                    <li><a href="#">Link 3</a></li>
+                    <li><a href="#">Link 4</a></li>
+                </ul>
+            </div>
+            {% endblock %}
+        </div>
+    </div>
+</footer>
+
+
+
+</body>
+</html>

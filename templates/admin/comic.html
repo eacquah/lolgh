@@ -1,0 +1,37 @@
+{% extends "@admin/base.html" %}
+
+{% block title %}Index{% endblock %}
+{% block head %}
+{{ parent() }}
+{% endblock %}
+{% block content %}
+
+<div class="row">
+    <a href="/admin/add-comic" class="button">Add Comic</a>
+</div>
+<div class="row">
+    <table>
+        <thead>
+            <tr>
+                <th>Release Date</th>
+                <th>Comic</th>
+                <th>title</th>
+                <th>Date Posted</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for comic in comics %}
+                <tr>
+                    <td>{{ comic.releaseDate|date("D M j, Y") }}</td>
+                    <td><img src="http://placehold.it/100x100&text=[img]"/></td>
+                    <!--<td><img src="http://lolgh.com/cms/content/lol_gh/{{ comic.url }}"/></td>-->
+                    <td>{{ comic.title }}</td>
+                    <td>{{ comic.dateAdded|date("D M j, Y") }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+</div>
+
+{% endblock %}

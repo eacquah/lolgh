@@ -8,7 +8,7 @@ $dao->setDb($db);
 
 
 $page  = isset($_GET['page']) ? strip_tags($_GET['page']) : '';
-$param = isset($_GET['param']) ? (int)$_GET['param'] : 0;
+$param = isset($_GET['param']) ? strip_tags($_GET['param']) : 0;
 
 $template = null;
 $vars     = array();
@@ -24,6 +24,7 @@ switch ($page) {
 
     case 'toon':
         $toon = null;
+        $param = (int) $param;
         if ($param > 0) {
             $toon = $dao->findById('toon', $param);
         } else {
@@ -41,6 +42,7 @@ switch ($page) {
 
     case 'comic':
         $comic    = null;
+        $param = (int) $param;
         $template = '@frontend/comic.html';
         if ($param > 0) {
             $comic = $dao->findById('comic', $param);
@@ -68,10 +70,28 @@ switch ($page) {
         break;
 }
 
-if ($page === 'admin') {
+if ($page == 'admin') {
+    $param1 = isset($_GET['param1']) ? (int)$_GET['param1'] : 0;
     switch($param) {
         case '':
-            $template = '@admin/index.html';
+            $template = '@admin/login.html';
+            break;
+
+        case 'comic':
+            $template = '@admin/comic.html';
+            $comics    = $dao->fetchAll('comic');
+            $vars = array(
+                'comics' => $comics
+            );
+            break;
+
+        case 'toon':
+            $template = '@admin/toon.html';
+            $toons    = $dao->fetchAll('toon');
+            $vars = array(
+                'toons' => $toons
+            );
+
             break;
 
         case 'add-comic':

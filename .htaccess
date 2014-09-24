@@ -8,3 +8,6 @@ RewriteRule ^([a-zA-Z0-9]+)/$ index.php?page=$1
 
 RewriteRule ^([a-z0-9_-]+)/([a-z0-9_-]+)(/)?$ index.php?page=$1&param=$2
 RewriteRule ^([a-z0-9_-]+)/([a-z0-9_-]+)(/)?/$ index.php?page=$1&param=$2
+
+RewriteRule ^([a-z0-9_-]+)/([a-z0-9_-]+)/([a-z0-9_-]+)(/)?$ index.php?page=$1&param=$2&param1=$3
+RewriteRule ^([a-z0-9_-]+)/([a-z0-9_-]+)/([a-z0-9_-]+)(/)?/$ index.php?page=$1&param=$2&param1=$3

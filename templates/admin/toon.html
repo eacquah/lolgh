@@ -1,0 +1,25 @@
+{% extends "@admin/base.html" %}
+
+{% block title %}Index{% endblock %}
+{% block head %}
+{{ parent() }}
+{% endblock %}
+{% block content %}
+
+<div class="row">
+    <a href="/admin/add-toon" class="button">Add Toon</a>
+</div>
+<div class="row">
+    {% for toon in toons %}
+    <div class="large-4 small-6 columns">
+        <img src="http://placehold.it/500x500&text=Thumbnail">
+        <div class="panel">
+            <h5>Item Name</h5>
+            <h6 class="subheader">{{ toon.title }} on {{ toon.releaseDate|date("D M j, Y") }}</h6>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+
+{% endblock %}
