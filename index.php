@@ -97,6 +97,23 @@ if ($page == 'admin') {
         case 'add-comic':
             $template = '@admin/add-comic.html';
             break;
+
+        case 'add-toon':
+            if (isset($_POST['title'])) {
+                array_walk_recursive($_POST, 'mysql_real_escape_string');
+                $data = array(
+                    'title' => $_POST['title'],
+                    'url' => $_POST['url'],
+                    'date_added' => time(),
+                    'release_date' => strtotime($_POST['release_date'])
+                );
+                $db->insert('toon', $data);
+                header('Location: /admin/toon');
+                exit();
+            }
+
+            $template = '@admin/add-toon.html';
+            break;
     }
 }
 

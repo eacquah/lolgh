@@ -7,75 +7,39 @@
 {% block content %}
 
 <div class="row">
-    <form>
+    <form method="post" action="">
         <div class="row collapse">
-            <div class="small-3 large-2 columns">
-                <span class="prefix">http://youtube.com/embed</span>
+            <div class="small-5 large-3 columns">
+                <span class="prefix">http://youtu.be/</span>
             </div>
-            <div class="small-9 large-10 columns">
-                <input type="text" placeholder="Enter your URL...">
-            </div>
-        </div>
-        <div class="row">
-            <div class="large-12 columns">
-                <div class="row collapse">
-                    <div class="small-12 columns">
-                        <input type="text" placeholder="Title">
-                    </div>
-                </div>
+            <div class="small-7 large-9 columns">
+                <input type="text" placeholder="Enter your URL..." name="url" required="true">
             </div>
         </div>
         <div class="row">
             <div class="large-12 columns">
                 <div class="row collapse">
                     <div class="small-12 columns">
-                        <input type="date" placeholder="Release Date">
+                        <input type="text" placeholder="Title" name="title" required="true">
                     </div>
                 </div>
             </div>
         </div>
         <div class="row">
-            <div class="large-6 columns">
-                <div class="row collapse prefix-radius">
-                    <div class="small-3 columns">
-                        <span class="prefix">Label</span>
-                    </div>
-                    <div class="small-9 columns">
-                        <input type="text" placeholder="Value">
-                    </div>
-                </div>
-            </div>
-            <div class="large-6 columns">
-                <div class="row collapse postfix-radius">
-                    <div class="small-9 columns">
-                        <input type="text" placeholder="Value">
-                    </div>
-                    <div class="small-3 columns">
-                        <span class="postfix">Label</span>
+            <div class="large-12 columns">
+                <div class="row collapse">
+                    <div class="small-12 columns">
+                        <input type="date" placeholder="Release Date" name="release_date" required="true">
                     </div>
                 </div>
             </div>
         </div>
+
         <div class="row">
-            <div class="large-6 columns">
-                <div class="row collapse prefix-round">
-                    <div class="small-3 columns">
-                        <a href="#" class="button prefix">Go</a>
-                    </div>
-                    <div class="small-9 columns">
-                        <input type="text" placeholder="Value">
-                    </div>
-                </div>
-            </div>
-            <div class="large-6 columns">
-                <div class="row collapse postfix-round">
-                    <div class="small-9 columns">
-                        <input type="text" placeholder="Value">
-                    </div>
-                    <div class="small-3 columns">
-                        <a href="#" class="button postfix">Go</a>
-                    </div>
-                </div>
+            <div class="large-12 columns">
+                <label>
+                    <input type="submit" class="button" value="Save"/>
+                </label>
             </div>
         </div>
     </form>
