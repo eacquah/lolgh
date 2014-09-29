@@ -74,6 +74,17 @@ if ($page == 'admin') {
     $param1 = isset($_GET['param1']) ? (int)$_GET['param1'] : 0;
     switch($param) {
         case '':
+            if (isset($_POST['username'])) {
+                array_walk_recursive($_POST, 'mysql_real_escape_string');
+                $userId = $dao->authenticate($_POST);
+                if ($userId) {
+                    header('Location: /admin/comic');
+                    exit();
+                }
+                $vars = array(
+                    'error' => 'Invalid username and password'
+                );
+            }
             $template = '@admin/login.html';
             break;
 
@@ -95,6 +106,19 @@ if ($page == 'admin') {
             break;
 
         case 'add-comic':
+            if (isset($_POST['title'])) {
+                array_walk_recursive($_POST, 'mysql_real_escape_string');
+                $data = array(
+                    'title' => $_POST['title'],
+                    'url' => $_POST['comic'],
+                    'date_added' => time(),
+                    'release_date' => strtotime($_POST['release_date'])
+                );
+                $db->insert('toon', $data);
+                header('Location: /admin/toon');
+                exit();
+            }
+
             $template = '@admin/add-comic.html';
             break;
 
