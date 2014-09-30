@@ -14,8 +14,8 @@
     <div class="large-4 small-6 columns">
         <img src="http://placehold.it/500x500&text=Thumbnail">
         <div class="panel">
-            <h5>Item Name</h5>
-            <h6 class="subheader">{{ toon.title }} on {{ toon.releaseDate|date("D M j, Y") }}</h6>
+            <h5>{{ toon.title }}</h5>
+            <p>Release date: {{ toon.releaseDate|date("D M j, Y") }}</p>
         </div>
     </div>
     {% endfor %}

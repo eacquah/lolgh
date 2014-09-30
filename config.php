@@ -1,4 +1,5 @@
 <?php
+session_start();
 // Set app constants
 define('BASE_PATH', realpath(dirname(__FILE__)));
 
@@ -32,4 +33,5 @@ include('lib/Comic.php');
 include('lib/Db.php');
 include('lib/Toon.php');
 include('lib/Dao.php');
+include('lib/Password.php');
 

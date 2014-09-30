@@ -231,4 +231,17 @@ class Dao
 
         return (int)$row->total;
     }
+
+    public function authenticate($email, $password)
+    {
+        $passwordHash = new Password();
+        $query     = "SELECT * FROM user
+                      WHERE email = '$email'";
+        $row       = $this->getDb()->get_row($query);
+        if ($row && $passwordHash->verify($password, $row->password)) {
+            return $row->user_id;
+        } else {
+            return null;
+        }
+    }
 } 

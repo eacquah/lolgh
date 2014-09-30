@@ -1,6 +1,6 @@
 <?php
 require_once('config.php');
-//$MyPdo = new \classes\MyPDO('db/db.sqlite');
+
 $user = new \Lib\User();
 $db   = new \Lib\Db($dbFile);
 $dao  = new \Lib\Dao();
@@ -72,12 +72,20 @@ switch ($page) {
 
 if ($page == 'admin') {
     $param1 = isset($_GET['param1']) ? (int)$_GET['param1'] : 0;
+    if (!isset($_SESSION['admin'])) {
+        $param = '';
+    }
     switch($param) {
         case '':
-            if (isset($_POST['username'])) {
+        case 'login':
+            $passwordHash = new \Lib\Password();
+            if (isset($_POST['email'])) {
                 array_walk_recursive($_POST, 'mysql_real_escape_string');
-                $userId = $dao->authenticate($_POST);
+                $email = $_POST['email'];
+                $password = $_POST['password'];
+                $userId = $dao->authenticate($email, $password);
                 if ($userId) {
+                    $_SESSION['admin'] = $userId;
                     header('Location: /admin/comic');
                     exit();
                 }
@@ -138,6 +146,13 @@ if ($page == 'admin') {
 
             $template = '@admin/add-toon.html';
             break;
+
+        case 'logout':
+            unset($_SESSION['admin']);
+            header('Location: /admin');
+            exit();
+            break;
+
     }
 }
 
