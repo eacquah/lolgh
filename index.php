@@ -116,15 +116,37 @@ if ($page == 'admin') {
         case 'add-comic':
             if (isset($_POST['title'])) {
                 array_walk_recursive($_POST, 'mysql_real_escape_string');
-                $data = array(
-                    'title' => $_POST['title'],
-                    'url' => $_POST['comic'],
-                    'date_added' => time(),
-                    'release_date' => strtotime($_POST['release_date'])
-                );
-                $db->insert('toon', $data);
-                header('Location: /admin/toon');
-                exit();
+                $handle = new \Lib\Upload($_FILES['comic']);
+
+                if ($handle->uploaded) {
+                    die('trying to upload');
+                    $handle->image_resize            = true;
+                    $handle->image_ratio_y           = true;
+                    $handle->image_x                 = 700;
+
+                    $dir = dirname(__FILE__) . '/img/uploads';
+                    // now, we start the upload 'process'. That is, to copy the uploaded file
+                    // from its temporary location to the wanted location
+                    // It could be something like $handle->Process('/home/www/my_uploads/');
+                    $handle->Process($dir);
+
+                    echo $dir;
+                    // we check if everything went OK
+                    if ($handle->processed) {
+                        die ('got uploaded');
+                        $data = array(
+                            'title' => $_POST['title'],
+                            'url' => $handle->file_dst_name,
+                            'date_added' => time(),
+                            'release_date' => strtotime($_POST['release_date'])
+                        );
+                        $db->insert('toon', $data);
+                        header('Location: /admin/toon');
+                        exit();
+                    }
+                    die('didnt work');
+
+                }
             }
 
             $template = '@admin/add-comic.html';

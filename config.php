@@ -34,4 +34,4 @@ include('lib/Db.php');
 include('lib/Toon.php');
 include('lib/Dao.php');
 include('lib/Password.php');
-
+include('lib/Upload.php');
