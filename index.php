@@ -23,8 +23,8 @@ switch ($page) {
         break;
 
     case 'toon':
-        $toon = null;
-        $param = (int) $param;
+        $toon  = null;
+        $param = (int)$param;
         if ($param > 0) {
             $toon = $dao->findById('toon', $param);
         } else {
@@ -42,7 +42,7 @@ switch ($page) {
 
     case 'comic':
         $comic    = null;
-        $param = (int) $param;
+        $param    = (int)$param;
         $template = '@frontend/comic.html';
         if ($param > 0) {
             $comic = $dao->findById('comic', $param);
@@ -75,15 +75,15 @@ if ($page == 'admin') {
     if (!isset($_SESSION['admin'])) {
         $param = '';
     }
-    switch($param) {
+    switch ($param) {
         case '':
         case 'login':
             $passwordHash = new \Lib\Password();
             if (isset($_POST['email'])) {
                 array_walk_recursive($_POST, 'mysql_real_escape_string');
-                $email = $_POST['email'];
+                $email    = $_POST['email'];
                 $password = $_POST['password'];
-                $userId = $dao->authenticate($email, $password);
+                $userId   = $dao->authenticate($email, $password);
                 if ($userId) {
                     $_SESSION['admin'] = $userId;
                     header('Location: /admin/comic');
@@ -98,8 +98,8 @@ if ($page == 'admin') {
 
         case 'comic':
             $template = '@admin/comic.html';
-            $comics    = $dao->fetchAll('comic');
-            $vars = array(
+            $comics   = $dao->fetchAll('comic');
+            $vars     = array(
                 'comics' => $comics
             );
             break;
@@ -107,7 +107,7 @@ if ($page == 'admin') {
         case 'toon':
             $template = '@admin/toon.html';
             $toons    = $dao->fetchAll('toon');
-            $vars = array(
+            $vars     = array(
                 'toons' => $toons
             );
 
@@ -116,35 +116,24 @@ if ($page == 'admin') {
         case 'add-comic':
             if (isset($_POST['title'])) {
                 array_walk_recursive($_POST, 'mysql_real_escape_string');
-                $handle = new \Lib\Upload($_FILES['comic']);
+                $upload           = new \Lib\Upload();
+                $upload->uploadTo = 'img/comics/';
+                $res              = $upload->upload($_FILES['comic']);
+                if ($res) {
+                    // RESIZE
+                    $upload->newWidth  = 400;
+                    $upload->newHeight = 300;
+                    $imageUrl          = $upload->resize();
 
-                if ($handle->uploaded) {
-                    die('trying to upload');
-                    $handle->image_resize            = true;
-                    $handle->image_ratio_y           = true;
-                    $handle->image_x                 = 700;
-
-                    $dir = dirname(__FILE__) . '/img/uploads';
-                    // now, we start the upload 'process'. That is, to copy the uploaded file
-                    // from its temporary location to the wanted location
-                    // It could be something like $handle->Process('/home/www/my_uploads/');
-                    $handle->Process($dir);
-
-                    echo $dir;
-                    // we check if everything went OK
-                    if ($handle->processed) {
-                        die ('got uploaded');
-                        $data = array(
-                            'title' => $_POST['title'],
-                            'url' => $handle->file_dst_name,
-                            'date_added' => time(),
-                            'release_date' => strtotime($_POST['release_date'])
-                        );
-                        $db->insert('toon', $data);
-                        header('Location: /admin/toon');
-                        exit();
-                    }
-                    die('didnt work');
+                    $data = array(
+                        'title'        => $_POST['title'],
+                        'url'          => $imageUrl,
+                        'date_added'   => time(),
+                        'release_date' => strtotime($_POST['release_date'])
+                    );
+                    $db->insert('comic', $data);
+                    header('Location: /admin/comic');
+                    exit();
 
                 }
             }
@@ -156,9 +145,9 @@ if ($page == 'admin') {
             if (isset($_POST['title'])) {
                 array_walk_recursive($_POST, 'mysql_real_escape_string');
                 $data = array(
-                    'title' => $_POST['title'],
-                    'url' => $_POST['url'],
-                    'date_added' => time(),
+                    'title'        => $_POST['title'],
+                    'url'          => $_POST['url'],
+                    'date_added'   => time(),
                     'release_date' => strtotime($_POST['release_date'])
                 );
                 $db->insert('toon', $data);
