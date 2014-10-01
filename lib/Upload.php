@@ -2,26 +2,26 @@
 
 namespace Lib;
 /*  ****************************************************************
-                    :: _image :: 
+                    :: _image ::
                     Image upload and manipulation class
-                    
+
                     Version 1.1         (15 Nov 2011)
-                    
+
                     Copyright MJDIGITAL ©2009-2011
                     Written by Mark Jackson
-                    All rights reserved 
-    
+                    All rights reserved
+
     Changelog
         v1.1    Fixed newName on upload
                 Fixed extension replacement on upload
                 Fixed padToFit is turned off when oversize is set to true
-                
-    
+
+
     Thanks for bug fixes/notifications to:
         Yamez - muleofyamez at yahoo     (strict image type chcking)
         Chuck - at Toucan Media Group    (image quality calculation fix
         Frank - at Advanced Virtual     (located bugs with filename replace and oversize + requesting version numbers)
-    
+
 *  ****************************************************************/
 
 class Upload {
@@ -51,6 +51,7 @@ class Upload {
     public $padTransparent    = 'true';         // if uploading a GIF or PNG then set background as transparent - this overrides $padColour
     public $newImgType        = '';             // force resized image to be jpg | gif | png | wbmp - leave blank to match source type
     public $imgQuality        = '80';            // image quality 1-100 (%)
+  public $resizedImgName = ''; // Name of resized image
 
 
 
@@ -595,6 +596,8 @@ class Upload {
         imagedestroy($src);
         imagedestroy($canvas);
 
+        $this->resizedImgName = $imgName;
+
         // Return image, array or blob if required
         switch(strtolower($this->returnType)) {
             case 'array':
@@ -671,7 +674,7 @@ YOU CAN DELETE EVERYTHING FROM HERE ONWARDS (although you may want to keep a clo
 
 public $uploadTo        = 'uploaded/';
     public $source_file     = '';
-    public $newWidth         = '';    
+    public $newWidth         = '';
     public $newHeight         = '';
     public $newName         = '';
     public $namePrefix         = '';

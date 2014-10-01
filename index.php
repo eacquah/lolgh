@@ -116,15 +116,21 @@ if ($page == 'admin') {
         case 'add-comic':
             if (isset($_POST['title'])) {
                 array_walk_recursive($_POST, 'mysql_real_escape_string');
+                $tmpFile = $_FILES['comic']['tmp_name'];
+                list($width, $height) = getimagesize($tmpFile);
+                $newWidth = 1000;
+                $imgRatio = $newWidth / $width;
+                $newHeight = $height * $imgRatio;
                 $upload           = new \Lib\Upload();
                 $upload->uploadTo = 'img/comics/';
+
                 $res              = $upload->upload($_FILES['comic']);
                 if ($res) {
                     // RESIZE
-                    $upload->newWidth  = 400;
-                    $upload->newHeight = 300;
-                    $imageUrl          = $upload->resize();
-
+                    $upload->newWidth  = $newWidth;
+                    $upload->newHeight = $newHeight;
+                    $upload->resize();
+                    $imageUrl          = $upload->resizedImgName;
                     $data = array(
                         'title'        => $_POST['title'],
                         'url'          => $imageUrl,
@@ -134,7 +140,6 @@ if ($page == 'admin') {
                     $db->insert('comic', $data);
                     header('Location: /admin/comic');
                     exit();
-
                 }
             }
 

@@ -12,64 +12,65 @@
 </head>
 <body>
 
-<div class="row">
-    <div class="large-12 columns">
+<header>
+    <div class="row">
+        <div class="contain-to-grid fixed">
+            <nav class="top-bar" data-topbar role="navigation">
+                <ul class="title-area">
+                    <li class="name">
+                        <h1>
+                            <a href="#">
+                                Top Bar Title
+                            </a>
+                        </h1>
+                    </li>
+                    <li class="toggle-topbar menu-icon"><a href="#"><span>menu</span></a></li>
+                </ul>
+            </nav>
 
-        <nav class="top-bar" data-topbar>
-            <ul class="title-area">
-                <li class="name">
-                    <h1>
-                        <a href="#">
-                            Top Bar Title
-                        </a>
-                    </h1>
-                </li>
-                <li class="toggle-topbar menu-icon"><a href="#"><span>menu</span></a></li>
-            </ul>
-        </nav>
-
+        </div>
     </div>
-</div>
+
+</header>
 
 <div class="row">
-    <div class="large-12 columns">
+    <div class="large-12 columns panel offset-by-two">
         <div class="large-6 columns large-centered">
-        <form method="post" action="">
-            <div class="row">
-                <div class="large-12 columns">
-                    <div class="row collapse">
-                        <input type="text" placeholder="email" name="email" required="true">
+            <h3>AdminLogin</h3>
+            <form method="post" action="">
+                <div class="row">
+                    <div class="large-12 columns">
+                        <div class="row collapse">
+                            <input type="text" placeholder="email" name="email" required="true">
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="row">
-                <div class="large-12 columns">
-                    <div class="row collapse">
-                        <input type="password" placeholder="password" name="password" required="true">
+                <div class="row">
+                    <div class="large-12 columns">
+                        <div class="row collapse">
+                            <input type="password" placeholder="password" name="password" required="true">
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="row">
-                <div class="large-12 columns">
-                    <div class="row collapse">
-                        <input type="submit" class="button" value="login">
+                <div class="row">
+                    <div class="large-12 columns">
+                        <div class="row collapse">
+                            <input type="submit" class="button" value="login">
+                        </div>
                     </div>
                 </div>
-            </div>
-        </form>
+            </form>
+
         </div>
     </div>
 </div>
-
-
-
 
 <footer class="row">
     <div class="large-12 columns"><hr/>
         <div class="row">
             {% block footer %}
             <div class="large-6 columns">
-                <p>© Copyright no one at all. Go to town.</p>
+                <p>© Lolgh .</p>
             </div>
 
             <div class="large-6 columns">
