@@ -76,12 +76,6 @@
             </h5>
         </div>
 
-        <a href="#">
-            <div class="panel callout radius">
-                <h6>99  items in your cart</h6>
-            </div>
-        </a>
-
     </div>
 
 
@@ -94,21 +88,12 @@
 
 <footer class="row">
     <div class="large-12 columns"><hr/>
-            {% block footer %}
-            <div class="large-6 columns">
+        {% block footer %}
+            <div class="large-6 columns large-centered">
                 <p>Lolgh © Copyright {{ "now"|date("Y") }}</p>
             </div>
-
-            <div class="large-6 columns">
-                <ul class="inline-list right">
-                    <li><a href="#">Link 1</a></li>
-                    <li><a href="#">Link 2</a></li>
-                    <li><a href="#">Link 3</a></li>
-                    <li><a href="#">Link 4</a></li>
-                </ul>
-            </div>
-            {% endblock %}
-        </div>
+        {% endblock %}
+    </div>
 </footer>
 
 <script src="/bower_components/jquery/dist/jquery.min.js"></script>
