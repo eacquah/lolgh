@@ -7,7 +7,7 @@
 {% block content %}
 
 <div class="row">
-    <a href="/admin/add-comic" class="button">Add Comic</a>
+    <a href="/admin/add-comic" class="button"><i class="fa fa-plus-circle"></i>&nbsp;Add Comic</a>
 </div>
 <div class="row">
     <table>
@@ -24,11 +24,13 @@
             {% for comic in comics %}
                 <tr>
                     <td>{{ comic.releaseDate|date}}</td>
-                    <td><img src="http://placehold.it/100x100&text=[img]"/></td>
-                    <!--<td><img src="http://lolgh.com/cms/content/lol_gh/{{ comic.url }}"/></td>-->
+                    <!--<td><img src="http://placehold.it/100x100&text=[img]"/></td>-->
+                    <td><img src="http://lolgh.com/cms/content/lol_gh/{{ comic.url }}" width="120px"/></td>
                     <td>{{ comic.title }}</td>
                     <td>{{ comic.dateAdded|date }}</td>
-                    <td><i class="fa fa-times-circle fa-2x"></i></td>
+                    <td><a href="/admin/comic/del-{{ comic.comicId }}"
+                           onClick="return confirm('Are you absolutely sure you want to delete?')"
+                            ><i class="fa fa-times-circle fa-2x"></i></a></td>
                 </tr>
             {% endfor %}
         </tbody>

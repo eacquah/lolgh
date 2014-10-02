@@ -115,14 +115,15 @@ class Dao
      * Fetches all results from a table as objects
      *
      * @param $table
-     *
+     * @param null $where
+     * @param null $orderBy
      * @return array
      */
-    public function fetchAll($table)
+    public function fetchAll($table, $where = null, $orderBy = null)
     {
         $results   = array();
         $className = '\Lib\\' . ucfirst(strtolower($table));
-        $query     = "SELECT * FROM $table";
+        $query     = "SELECT * FROM $table $where $orderBy";
         $rows      = $this->getDb()->get_rows($query);
         foreach ($rows as $row) {
             $results[] = $this->build($className, $row);

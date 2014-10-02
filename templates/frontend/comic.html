@@ -5,11 +5,11 @@
 {{ parent() }}
 {% endblock %}
 {% block content %}
-<div class="row">
+<div class="row main">
     <div class="small-9 columns">
         <div class="row">
             <div class="small-6 columns">
-                <p>"{{ comic.title }}" posted on {{ comic.releaseDate | date("Y-m-d") }}</p>
+                <h4>"{{ comic.title }}" posted on {{ comic.releaseDate | date("Y-m-d") }}</h4>
             </div>
             <div class="small-6 columns">
                 <div class="button-bar right">
@@ -24,8 +24,10 @@
             </div>
         </div>
         <div class="row panel text-center" id="main-comic">
-            <!--<img src="http://lolgh.com/cms/content/lol_gh/{{ comic.url }}"/>-->
-            <img src="http://placehold.it/400x300&text=[img]"/>
+            <img src="http://lolgh.com/cms/content/lol_gh/{{ comic.url }}"/>
+            <!--<img src="http://placehold.it/400x300&text=[img]"/>-->
+            <!-- Go to www.addthis.com/dashboard to customize your tools -->
+            <!--<div class="addthis_sharing_toolbox"></div>-->
         </div>
     </div>
 

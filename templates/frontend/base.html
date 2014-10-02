@@ -68,22 +68,20 @@
 </div>
 
 <footer>
-    <div id="footer">
-        {% block footer %}
-        <div class="panel">
-            <div class="row">
-                <div class="medium-6 large-6 columns">My Site © {{ "now"|date("Y") }} . Powered by SpacebarWeb</div>
-                <div class="medium-6 large-6 columns">
-                    <ul class="inline-list right">
-                        <li><a href="#"><i class="fa fa-facebook fa-lg"></i></a></li>
-                        <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                        <li><a href="#"><i class="fa fa-youtube"></i></a></li>
-                    </ul>
-                </div>
+    {% block footer %}
+    <div class="panel">
+        <div class="row">
+            <div class="medium-6 large-6 columns">My Site © {{ "now"|date("Y") }} . Powered by SpacebarWeb</div>
+            <div class="medium-6 large-6 columns">
+                <ul class="inline-list right">
+                    <li><a href="https://www.facebook.com/lolgh"><i class="fa fa-facebook-square fa-2x"></i></a></li>
+                    <li><a href="#"><i class="fa fa-twitter-square fa-2x"></i></a></li>
+                    <li><a href="https://www.youtube.com/user/LOLghTOONS/videos"><i class="fa fa-youtube-square fa-2x"></i></a></li>
+                </ul>
             </div>
         </div>
-        {% endblock %}
     </div>
+    {% endblock %}
 </footer>
 
 

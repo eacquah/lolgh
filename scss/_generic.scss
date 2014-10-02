@@ -1,14 +1,20 @@
 @import url('http://fonts.googleapis.com/css?family=Open+Sans');
 @import url('http://fonts.googleapis.com/css?family=Classic+Comic');
+@import url('http://fonts.googleapis.com/css?family=Bangers');
 
-h1, h2, h3{
-  font-family: 'Open Sans', 'Helvetica';
+body {
+  font-family: 'Bangers', 'Open Sans', 'Helvetica';
 }
+
+h1, h2, h3, h4 {
+  font-family: 'Bangers', 'Open Sans', 'Helvetica';
+}
+
 #main-comic {
   padding: 0 0 70px 0;
 }
 
-#main-comic img{
+#main-comic img {
   text-align: center;
 }
 
@@ -16,16 +22,19 @@ h1, h2, h3{
   text-align: center;
 }
 
-iframe[id^='twitter-widget-']{
-  width:100% !important;
+iframe[id^='twitter-widget-'] {
+  width: 100% !important;
+}
+
+.timeline {
+  border-radius: 0px !important;
 }
 
 .fb-like-box iframe {
-  width: 100% !important;
-  height: 1000px !important;
+  width: 75% !important;
 }
 
 body {
-  background: url('../img/comics/cool-car-backgrounds.jpg') no-repeat top left,
-  url(../img/comics/images.jpg) no-repeat top right;
+  background: url('../img/left-banner.gif') repeat-y center left fixed, url('../img/right-banner.gif') repeat-y center right fixed;
+  background-size: 20% auto, 20% auto;
 }

@@ -14,51 +14,48 @@
 
 
 <header>
-    <div class="row">
-        <div class="large-12 columns">
+    <div class="contain-to-grid fixed">
+        <nav class="top-bar" data-topbar>
+            <ul class="title-area">
 
-            <nav class="top-bar" data-topbar>
-                <ul class="title-area">
+                <li class="name">
+                    <h1>
+                        <a href="#">
+                            Admin
+                        </a>
+                    </h1>
+                </li>
+                <li class="toggle-topbar menu-icon"><a href="#"><span>menu</span></a></li>
+            </ul>
 
-                    <li class="name">
-                        <h1>
-                            <a href="#">
-                                Admin
-                            </a>
-                        </h1>
+            <section class="top-bar-section">
+
+                <ul class="right">
+                    <li class="has-dropdown">
+                        <a href="#">Comics</a>
+                        <ul class="dropdown">
+                            <li><a href="/admin/add-comic">Add Comic</a></li>
+                            <li class="divider"></li>
+                            <li><a href="/admin/comic">View Comics</a></li>
+                        </ul>
                     </li>
-                    <li class="toggle-topbar menu-icon"><a href="#"><span>menu</span></a></li>
+                    <li class="has-dropdown">
+                        <a href="#">Toons</a>
+                        <ul class="dropdown">
+                            <li><a href="/admin/add-toon">Add Toon</a></li>
+                            <li class="divider"></li>
+                            <li><a href="/admin/toon">View Toons</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="/admin/logout" title="log out"><i class="fa fa-power-off"></i></a>
+                    </li>
                 </ul>
 
-                <section class="top-bar-section">
-
-                    <ul class="right">
-                        <li class="has-dropdown">
-                            <a href="#">Comics</a>
-                            <ul class="dropdown">
-                                <li><a href="/admin/add-comic">Add Comic</a></li>
-                                <li class="divider"></li>
-                                <li><a href="/admin/comic">View Comics</a></li>
-                            </ul>
-                        </li>
-                        <li class="has-dropdown">
-                            <a href="#">Toons</a>
-                            <ul class="dropdown">
-                                <li><a href="/admin/add-toon">Add Toon</a></li>
-                                <li class="divider"></li>
-                                <li><a href="/admin/toon">View Toons</a></li>
-                            </ul>
-                        </li>
-                        <li>
-                            <a href="/admin/logout" title="log out"><i class="fa fa-power-off"></i></a>
-                        </li>
-                    </ul>
-
-                </section>
-            </nav>
-
-        </div>
+            </section>
+        </nav>
     </div>
+
 </header>
 
 
@@ -71,8 +68,9 @@
         <img src="http://placehold.it/500x500&text=Logo">
 
         <div class="hide-for-small panel">
-            <h3>Header</h3>
-            <h5 class="subheader">Risus ligula, aliquam nec fermentum vitae, sollicitudin eget urna. Donec dignissim nibh fermentum odio ornare sagittis.
+            <h3>Welcome {{ user.fullname }}</h3>
+            <h5 class="subheader">
+                With great power comes a shitload of bitches!
             </h5>
         </div>
 

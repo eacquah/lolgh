@@ -72,8 +72,11 @@ switch ($page) {
 
 if ($page == 'admin') {
     $param1 = isset($_GET['param1']) ? (int)$_GET['param1'] : 0;
-    if (!isset($_SESSION['admin'])) {
+    if (!isset($_SESSION['lolgh_admin'])) {
         $param = '';
+    } else {
+        $user = $dao->findById('user', $_SESSION['lolgh_admin']);
+        $vars['user'] = $user;
     }
     switch ($param) {
         case '':
@@ -85,31 +88,25 @@ if ($page == 'admin') {
                 $password = $_POST['password'];
                 $userId   = $dao->authenticate($email, $password);
                 if ($userId) {
-                    $_SESSION['admin'] = $userId;
+                    $_SESSION['lolgh_admin'] = $userId;
                     header('Location: /admin/comic');
                     exit();
                 }
-                $vars = array(
-                    'error' => 'Invalid username and password'
-                );
+                $vars['error'] ='Invalid username and password';
             }
             $template = '@admin/login.html';
             break;
 
         case 'comic':
             $template = '@admin/comic.html';
-            $comics   = $dao->fetchAll('comic');
-            $vars     = array(
-                'comics' => $comics
-            );
+            $comics   = $dao->fetchAll('comic', null, 'ORDER BY comic_id DESC');
+            $vars['comics'] = $comics;;
             break;
 
         case 'toon':
             $template = '@admin/toon.html';
-            $toons    = $dao->fetchAll('toon');
-            $vars     = array(
-                'toons' => $toons
-            );
+            $toons    = $dao->fetchAll('toon', null, 'ORDER BY toon_id DESC');
+            $vars['toons'] = $toons;
 
             break;
 
