@@ -24,3 +24,8 @@ iframe[id^='twitter-widget-']{
   width: 100% !important;
   height: 1000px !important;
 }
+
+body {
+  background: url('../img/comics/cool-car-backgrounds.jpg') no-repeat top left,
+  url(../img/comics/images.jpg) no-repeat top right;
+}

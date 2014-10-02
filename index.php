@@ -32,7 +32,7 @@ switch ($page) {
         }
         if ($toon) {
             $template = '@frontend/toon.html';
-            $toons    = $dao->fetchAll('toon');
+            $toons    = $dao->fetchReleased('toon');
             $vars     = array(
                 'toon'  => $toon,
                 'toons' => $toons

@@ -131,6 +131,51 @@ class Dao
         return $results;
     }
 
+  /**
+   * Fetches all results in batches from a table as objects
+   *
+   * @param     $table
+   * @param int $offset
+   * @param int $limit
+   *
+   * @return array
+   * @throws Exception
+   */
+  public function fetchBatch($table, $offset = 0, $limit = 50)
+  {
+    $results   = array();
+    $className = '\Lib\\' . ucfirst(strtolower($table));
+    $query     = "SELECT * FROM $table
+                  LIMIT $offset, $limit";
+    $rows      = $this->getDb()->get_rows($query);
+    foreach ($rows as $row) {
+      $results[] = $this->build($className, $row);
+    }
+
+    return $results;
+  }
+
+  /**
+   * Fetches all released results from a table as objects
+   *
+   * @param $table
+   *
+   * @return array
+   */
+  public function fetchReleased($table)
+  {
+    $results   = array();
+    $className = '\Lib\\' . ucfirst(strtolower($table));
+    $query     = "SELECT * FROM $table
+                WHERE release_date <= date()";
+    $rows      = $this->getDb()->get_rows($query);
+    foreach ($rows as $row) {
+      $results[] = $this->build($className, $row);
+    }
+
+    return $results;
+  }
+
     /**
      * Fetches the most recent result from a table as an object
      *
@@ -143,6 +188,7 @@ class Dao
         $index     = strtolower($table) . '_id';
         $className = '\Lib\\' . ucfirst(strtolower($table));
         $query     = "SELECT * FROM $table
+                        WHERE release_date <= date()
                         ORDER BY $index DESC
                         LIMIT 1";
         $row       = $this->getDb()->get_row($query);
@@ -165,6 +211,7 @@ class Dao
         $index     = strtolower($table) . '_id';
         $className = '\Lib\\' . ucfirst(strtolower($table));
         $query     = "SELECT * FROM $table
+                        WHERE release_date <= date()
                         ORDER BY $index ASC
                         LIMIT 1";
         $row       = $this->getDb()->get_row($query);
@@ -181,6 +228,7 @@ class Dao
         $className = '\Lib\\' . ucfirst(strtolower($table));
         $query     = "SELECT * FROM $table
                       WHERE $index > $id
+                      AND release_date <= date()
                       ORDER BY $index ASC
                       LIMIT 1";
         $row       = $this->getDb()->get_row($query);
@@ -198,6 +246,7 @@ class Dao
         $className = '\Lib\\' . ucfirst(strtolower($table));
         $query     = "SELECT * FROM $table
                       WHERE $index < $id
+                      AND release_date <= date()
                       ORDER BY $index DESC
                       LIMIT 1";
         $row       = $this->getDb()->get_row($query);
@@ -213,6 +262,7 @@ class Dao
     {
         $className = '\Lib\\' . ucfirst(strtolower($table));
         $query     = "SELECT * FROM $table
+                      WHERE release_date <= date()
                       ORDER BY RANDOM()
                       LIMIT 1";
         $row       = $this->getDb()->get_row($query);
