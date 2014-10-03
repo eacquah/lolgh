@@ -4,9 +4,15 @@
 
 body {
   font-family: 'Bangers', 'Open Sans', 'Helvetica';
+  background: url('../img/left-banner.gif') repeat-y center left fixed, url('../img/right-banner.gif') repeat-y center right fixed;
+  background-size: 20% auto, 20% auto;
 }
 
 h1, h2, h3, h4 {
+  font-family: 'Bangers', 'Open Sans', 'Helvetica';
+}
+
+.top-bar-section ul li > a{
   font-family: 'Bangers', 'Open Sans', 'Helvetica';
 }
 
@@ -27,14 +33,13 @@ iframe[id^='twitter-widget-'] {
 }
 
 .timeline {
-  border-radius: 0px !important;
+  border-radius: 0 !important;
 }
 
 .fb-like-box iframe {
   width: 75% !important;
 }
 
-body {
-  background: url('../img/left-banner.gif') repeat-y center left fixed, url('../img/right-banner.gif') repeat-y center right fixed;
-  background-size: 20% auto, 20% auto;
+.no-pad-right {
+  padding-right: 0;
 }
