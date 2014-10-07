@@ -26,6 +26,7 @@ Twig_Autoloader::register();
 $loader = new Twig_Loader_Filesystem($twigTemplateDir);
 $loader->addPath($twigTemplateDir . '/frontend', 'frontend');
 $loader->addPath($twigTemplateDir . '/admin', 'admin');
+$loader->addPath($twigTemplateDir . '/email', 'email');
 $twig = new Twig_Environment($loader, array(
   //    'cache' => $twigCacheDir,
 ));

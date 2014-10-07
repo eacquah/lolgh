@@ -13,31 +13,38 @@
         <div class="row">
             <div class="large-6 columns">
                 <h3 class="title">The Squad</h3>
+
                 <div class="content" data-slug="panel2">
                     <ul class="large-block-grid-2">
-                        <li><a href="mailto:wallen@lolgh.com"><img src="http://placehold.it/400x450&text=[person]">Wallen@lolgh.com</a></li>
-                        <li><a href="mailto:bobo@lolgh.com"><img src="http://placehold.it/400x450&text=[person]">Bobo@lolgh.com</a></li>
+                        <li><img src="http://placehold.it/400x450&text=[person]"/><a href="mailto:wallen@lolgh.com">Wallen@lolgh.com</a>
+                        </li>
+                        <li><img src="http://placehold.it/400x450&text=[person]"><a href="mailto:bobo@lolgh.com">Bobo@lolgh.com</a>
+                        </li>
                     </ul>
                 </div>
             </div>
             <div class="large-6 columns">
                 <h3>Get in Touch!</h3>
-
+                {% if success %}
+                <div data-alert class="alert-box success">{{ success }}</div>
+                {% endif %}
                 <div class="section-container tabs" data-section>
                     <section class="section">
                         <div class="content" data-slug="panel1">
-                            <form>
+                            <form method="post" action="">
                                 <div class="row collapse">
                                     <div class="large-12 columns">
-                                        <input type="text" id="yourName" placeholder="name [Kwaku Ananse]">
+                                        <input type="text" id="yourName" name="name" placeholder="name [Kwaku Ananse]"
+                                               required="true">
                                     </div>
                                 </div>
                                 <div class="row collapse">
                                     <div class="large-12 columns">
-                                        <input type="text" id="yourEmail" placeholder="email [jack@around-the-fireside.com]">
+                                        <input type="email" id="yourEmail" name="email"
+                                               placeholder="email [jack@around-the-fireside.com]" required="true">
                                     </div>
                                 </div>
-                                <textarea rows="4" placeholder="w'aguan?"></textarea>
+                                <textarea rows="4" placeholder="w'aguan?" name="msg" required="true"></textarea>
                                 <button type="submit" class="radius button">Submit</button>
                             </form>
                         </div>

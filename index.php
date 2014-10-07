@@ -19,6 +19,23 @@ switch ($page) {
         break;
 
     case 'contact':
+        if (isset($_POST['email'])) {
+          $subject = 'Lolgh Contact';
+          $from = strip_tags($_POST["email"]); // sender
+          $name = strip_tags($_POST["name"]);
+          $message = strip_tags($_POST["msg"]);
+          $message = wordwrap($message, 70);
+          // send mail to us
+          mail("manny.acquah@gmail.com", $subject, $message, "From: $from\n");
+          $emailVars = array(
+            'name' => $name,
+            'msg' => 'Thanks for getting in touch. We will be in touch shortly'
+          );
+          $reply = $twig->render('@email/contact-reply.html', $emailVars);
+          // send mail to user
+          mail($from, $subject, $reply,"From: hello@lolgh.com\n");
+          $vars['success'] = "Thank you for sending us feedback";
+        }
         $template = '@frontend/contact.html';
         break;
 
@@ -71,7 +88,7 @@ switch ($page) {
 }
 
 if ($page == 'admin') {
-    $param1 = isset($_GET['param1']) ? (int)$_GET['param1'] : 0;
+    $param1 = isset($_GET['param1']) ? $_GET['param1'] : '';
     if (!isset($_SESSION['lolgh_admin'])) {
         $param = '';
     } else {
@@ -98,6 +115,11 @@ if ($page == 'admin') {
             break;
 
         case 'comic':
+            // Check if delete is required
+            if($param1 != '' && preg_match("/(del)-[0-9]*/i", $param1)) {
+                $delId = end(explode('-', $param1));
+                $db->delete('comic', 'WHERE comic_id = "' . $delId . '"');
+            }
             $template = '@admin/comic.html';
             $comics   = $dao->fetchAll('comic', null, 'ORDER BY comic_id DESC');
             $vars['comics'] = $comics;;
