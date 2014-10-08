@@ -10,6 +10,9 @@
     <a href="/admin/add-comic" class="button"><i class="fa fa-plus-circle"></i>&nbsp;Add Comic</a>
 </div>
 <div class="row">
+    {% if success %}
+    <div data-alert class="alert-box success">{{ success }}</div>
+    {% endif %}
     <table>
         <thead>
             <tr>
@@ -23,13 +26,13 @@
         <tbody>
             {% for comic in comics %}
                 <tr>
-                    <td>{{ comic.releaseDate|date}}</td>
+                    <td>{{ comic.releaseDate|date("D d-M-y")}}</td>
                     <!--<td><img src="http://placehold.it/100x100&text=[img]"/></td>-->
                     <td><img src="http://lolgh.com/cms/content/lol_gh/{{ comic.url }}" width="120px"/></td>
                     <td>{{ comic.title }}</td>
-                    <td>{{ comic.dateAdded|date }}</td>
+                    <td>{{ comic.dateAdded|date("D d-M-y") }}</td>
                     <td><a href="/admin/comic/del-{{ comic.comicId }}"
-                           onClick="return confirm('Are you absolutely sure you want to delete?')"
+                           onClick="return confirm('Are you absolutely sure you want to delete this comic?')"
                             ><i class="fa fa-times-circle fa-2x"></i></a></td>
                 </tr>
             {% endfor %}

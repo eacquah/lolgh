@@ -6,13 +6,27 @@ $db   = new \Lib\Db($dbFile);
 $dao  = new \Lib\Dao();
 $dao->setDb($db);
 
-
 $page  = isset($_GET['page']) ? strip_tags($_GET['page']) : '';
 $param = isset($_GET['param']) ? strip_tags($_GET['param']) : 0;
 
 $template = null;
 $vars     = array();
 
+// Default meta data
+$metadata = array(
+    'ogTitle'            => 'Lolgh',
+    'ogType'             => 'website',
+    'ogImage'            => '',
+    'ogUrl'              => '',
+    'ogDescription'      => '',
+    'twitterCard'        => 'summary',
+    'twitterUrl'         => '',
+    'twitterTitle'       => '',
+    'twitterDescription' => '',
+    'twitterImage'       => '',
+);
+
+// Frontend Controller
 switch ($page) {
     case '':
         $template = '@frontend/index.html';
@@ -20,21 +34,21 @@ switch ($page) {
 
     case 'contact':
         if (isset($_POST['email'])) {
-          $subject = 'Lolgh Contact';
-          $from = strip_tags($_POST["email"]); // sender
-          $name = strip_tags($_POST["name"]);
-          $message = strip_tags($_POST["msg"]);
-          $message = wordwrap($message, 70);
-          // send mail to us
-          mail("manny.acquah@gmail.com", $subject, $message, "From: $from\n");
-          $emailVars = array(
-            'name' => $name,
-            'msg' => 'Thanks for getting in touch. We will be in touch shortly'
-          );
-          $reply = $twig->render('@email/contact-reply.html', $emailVars);
-          // send mail to user
-          mail($from, $subject, $reply,"From: hello@lolgh.com\n");
-          $vars['success'] = "Thank you for sending us feedback";
+            $subject = 'Lolgh Contact';
+            $from    = strip_tags($_POST["email"]); // sender
+            $name    = strip_tags($_POST["name"]);
+            $message = strip_tags($_POST["msg"]);
+            $message = wordwrap($message, 70);
+            // send mail to us
+            mail("manny.acquah@gmail.com", $subject, $message, "From: $from\n");
+            $emailVars = array(
+                'name' => $name,
+                'msg'  => 'Thanks for getting in touch. We will be in touch shortly'
+            );
+            $reply     = $twig->render('@email/contact-reply.html', $emailVars);
+            // send mail to user
+            mail($from, $subject, $reply, "From: hello@lolgh.com\n");
+            $vars['success'] = "Thank you for sending us feedback";
         }
         $template = '@frontend/contact.html';
         break;
@@ -64,15 +78,16 @@ switch ($page) {
         if ($param > 0) {
             $comic = $dao->findById('comic', $param);
         } else {
-            $comic = $dao->fetchRecent('comic');
+            $comic = $dao->fetchRecentComic();
         }
         if ($comic) {
             $comicId = $comic->getComicId();
+            $releaseDate = $comic->getReleaseDate();
             $total   = $dao->getTotal('comic');
-            $first   = $dao->fetchFirst('comic');
-            $last    = $dao->fetchRecent('comic');
-            $prev    = $dao->fetchPrevious('comic', $comicId);
-            $next    = $dao->fetchNext('comic', $comicId);
+            $first   = $dao->fetchFirstComic();
+            $last    = $dao->fetchRecentComic();
+            $prev    = $dao->fetchPreviousComic($releaseDate);
+            $next    = $dao->fetchNextComic($releaseDate);
             $rand    = $dao->fetchRandom('comic');
             $vars    = array(
                 'comic' => $comic,
@@ -87,12 +102,13 @@ switch ($page) {
         break;
 }
 
+// Admin Controller
 if ($page == 'admin') {
     $param1 = isset($_GET['param1']) ? $_GET['param1'] : '';
     if (!isset($_SESSION['lolgh_admin'])) {
         $param = '';
     } else {
-        $user = $dao->findById('user', $_SESSION['lolgh_admin']);
+        $user         = $dao->findById('user', $_SESSION['lolgh_admin']);
         $vars['user'] = $user;
     }
     switch ($param) {
@@ -109,25 +125,32 @@ if ($page == 'admin') {
                     header('Location: /admin/comic');
                     exit();
                 }
-                $vars['error'] ='Invalid username and password';
+                $vars['error'] = 'Invalid username and password';
             }
             $template = '@admin/login.html';
             break;
 
         case 'comic':
             // Check if delete is required
-            if($param1 != '' && preg_match("/(del)-[0-9]*/i", $param1)) {
+            if ($param1 != '' && preg_match("/(del)-[0-9]*/i", $param1)) {
                 $delId = end(explode('-', $param1));
-                $db->delete('comic', 'WHERE comic_id = "' . $delId . '"');
+                $db->delete('comic', array ('comic_id' => $delId));
+                $vars['success'] = 'Comic has been successfully deleted!';
             }
-            $template = '@admin/comic.html';
-            $comics   = $dao->fetchAll('comic', null, 'ORDER BY comic_id DESC');
+            $template       = '@admin/comic.html';
+            $comics         = $dao->fetchAll('comic', null, 'ORDER BY comic_id DESC');
             $vars['comics'] = $comics;;
             break;
 
         case 'toon':
-            $template = '@admin/toon.html';
-            $toons    = $dao->fetchAll('toon', null, 'ORDER BY toon_id DESC');
+            // Check if delete is required
+            if ($param1 != '' && preg_match("/(del)-[0-9]*/i", $param1)) {
+                $delId = end(explode('-', $param1));
+                $db->delete('toon', array ('toon_id' => $delId));
+                $vars['success'] = 'Toon has been successfully deleted!';
+            }
+            $template      = '@admin/toon.html';
+            $toons         = $dao->fetchAll('toon', null, 'ORDER BY toon_id DESC');
             $vars['toons'] = $toons;
 
             break;
@@ -137,20 +160,20 @@ if ($page == 'admin') {
                 array_walk_recursive($_POST, 'mysql_real_escape_string');
                 $tmpFile = $_FILES['comic']['tmp_name'];
                 list($width, $height) = getimagesize($tmpFile);
-                $newWidth = 1000;
-                $imgRatio = $newWidth / $width;
-                $newHeight = $height * $imgRatio;
+                $newWidth         = 1000;
+                $imgRatio         = $newWidth / $width;
+                $newHeight        = $height * $imgRatio;
                 $upload           = new \Lib\Upload();
                 $upload->uploadTo = 'img/comics/';
 
-                $res              = $upload->upload($_FILES['comic']);
+                $res = $upload->upload($_FILES['comic']);
                 if ($res) {
                     // RESIZE
                     $upload->newWidth  = $newWidth;
                     $upload->newHeight = $newHeight;
                     $upload->resize();
-                    $imageUrl          = $upload->resizedImgName;
-                    $data = array(
+                    $imageUrl = $upload->resizedImgName;
+                    $data     = array(
                         'title'        => $_POST['title'],
                         'url'          => $imageUrl,
                         'date_added'   => time(),
@@ -184,7 +207,7 @@ if ($page == 'admin') {
 
         case 'logout':
             unset($_SESSION['admin']);
-            header('Location: /admin');
+            header('Location: /');
             exit();
             break;
 
@@ -196,7 +219,8 @@ if (null === $template) {
 }
 
 // Set current page for template
-$vars['page'] = $page;
+$vars['page']     = $page;
+$vars['metadata'] = $metadata;
 
 // Render template
 echo $twig->render($template, $vars);

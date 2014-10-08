@@ -6,20 +6,20 @@
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <meta name="description" content=""/>
-    <meta name="keywords" content=""/>
-    <meta property="og:title" content="iAcquire’s awesome blog"/>
-    <meta property="og:type" content="website"/>
-    <meta property="og:image" content="http://www.iacquire.com/some-thumbnail.jpg"/>
-    <meta property="og:url" content="http://blog.iacquire.com"/>
-    <meta property="og:description" content="Stop hitting refresh on your ex-girlfriend’s Facebook page? You should check out the iAcquire blog and learn something instead"/>
-    <meta name="twitter:card" content="summary">
-    <meta name="twitter:url" content="http://www.nytimes.com/2012/02/19/arts/music/amid-police-presence-fans-congregate-for-whitney-houstons-funeral-in-newark.html">
-    <meta name="twitter:title" content="Parade of Fans for Houston’s Funeral">
-    <meta name="twitter:description" content="NEWARK – The guest list a.">
-    <meta name="twitter:image" content="http://graphics8.nytimes.com/images/2012/02/19/us/19whitney-span/19whitney-span-articleLarge.jpg">
+    <meta name="keywords" content="LolGH, Ghana, Africa, Comics, Fun"/>
+    <meta property="og:title" content="{{ metadata.ogTitle }}"/>
+    <meta property="og:type" content="{{ metadata.ogType }}"/>
+    <meta property="og:image" content="{{ metadata.ogImage }}"/>
+    <meta property="og:url" content="{{ metadata.ogUrl }}"/>
+    <meta property="og:description" content="{{ metadata.ogDescription }}"/>
+    <meta name="twitter:card" content="{{ metadata.twitterCard }}">
+    <meta name="twitter:url" content="{{ metadata.twitterUrl }}">
+    <meta name="twitter:title" content="{{ metadata.twitterTitle }}">
+    <meta name="twitter:description" content="{{ metadata.twitterDescription }}">
+    <meta name="twitter:image" content="{{ metadata.twitterImage }}">
     <link rel="publisher" href="https://plus.google.com/b/114851120518114779841"/>
     <!-- Update your html tag to include the itemscope and itemtype attributes. -->
-    <<meta itemprop="name" content="lolgh">
+    <meta itemprop="name" content="lolgh">
     <meta itemprop="description" content="comics">
     <meta itemprop="image" content="http://www.lolgh.com">
 
@@ -89,12 +89,13 @@
     {% block footer %}
     <div class="panel">
         <div class="row">
-            <div class="medium-6 large-6 columns">My Site © {{ "now"|date("Y") }} . Powered by SpacebarWeb</div>
+            <div class="medium-6 large-6 columns">My Site © {{ "now"|date("Y") }} . Powered by
+                <a href="http://spacebarweb.com" target="_blank"/> SpacebarWeb</div>
             <div class="medium-6 large-6 columns">
                 <ul class="inline-list right">
-                    <li><a href="https://www.facebook.com/lolgh"><i class="fa fa-facebook fa-lg"></i></a></li>
-                    <li><a href="#"><i class="fa fa-twitter fa-lg"></i></a></li>
-                    <li><a href="https://www.youtube.com/user/LOLghTOONS/videos"><i class="fa fa-youtube fa-lg`"></i></a></li>
+                    <li><a target="_blank" href="https://www.facebook.com/lolgh"><i class="fa fa-facebook fa-lg"></i></a></li>
+                    <li><a target="_blank" href="https://twitter.com/Lol_GH"><i class="fa fa-twitter fa-lg"></i></a></li>
+                    <li><a target="_blank" href="https://www.youtube.com/user/LOLghTOONS/videos"><i class="fa fa-youtube fa-lg`"></i></a></li>
                 </ul>
             </div>
         </div>

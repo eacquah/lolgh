@@ -201,6 +201,24 @@ class Dao
     }
 
     /**
+     * @return mixed|null
+     */
+    public function fetchRecentComic()
+    {
+        $className = '\Lib\\' . ucfirst(strtolower('comic'));
+        $query     = "SELECT * FROM comic
+                        WHERE release_date <= date()
+                        ORDER BY date(release_date) DESC, comic_id DESC
+                        LIMIT 1";
+        $row       = $this->getDb()->get_row($query);
+        if ($row) {
+            return $this->build($className, $row);
+        } else {
+            return null;
+        }
+    }
+
+    /**
      * Fetches the first result from a table as an object
      *
      * @param $table
@@ -223,6 +241,29 @@ class Dao
         }
     }
 
+    /**
+     * @return mixed|null
+     */
+    public function fetchFirstComic()
+    {
+        $className = '\Lib\\' . ucfirst(strtolower('comic'));
+        $query     = "SELECT * FROM comic
+                        WHERE release_date <= date()
+                        ORDER BY date(release_date) ASC, comic_id ASC
+                        LIMIT 1";
+        $row       = $this->getDb()->get_row($query);
+        if ($row) {
+            return $this->build($className, $row);
+        } else {
+            return null;
+        }
+    }
+
+    /**
+     * @param $table
+     * @param $id
+     * @return mixed|null
+     */
     public function fetchNext($table, $id)
     {
         $index     = strtolower($table) . '_id';
@@ -241,6 +282,32 @@ class Dao
         }
     }
 
+    /**
+     * @param $releaseDate
+     * @return mixed|null
+     */
+    public function fetchNextComic($releaseDate)
+    {
+        $className = '\Lib\\' . ucfirst(strtolower('comic'));
+        $query     = "SELECT * FROM comic
+                      WHERE $releaseDate > release_date
+                      AND release_date <= date()
+                      ORDER BY date(release_date) ASC, comic_id ASC
+                      LIMIT 1";
+        $row       = $this->getDb()->get_row($query);
+
+        if ($row) {
+            return $this->build($className, $row);
+        } else {
+            return null;
+        }
+    }
+
+    /**
+     * @param $table
+     * @param $id
+     * @return mixed|null
+     */
     public function fetchPrevious($table, $id)
     {
         $index     = strtolower($table) . '_id';
@@ -259,6 +326,31 @@ class Dao
         }
     }
 
+    /**
+     * @param $releaseDate
+     * @return mixed|null
+     */
+    public function fetchPreviousComic($releaseDate)
+    {
+        $className = '\Lib\\' . ucfirst(strtolower('comic'));
+        $query     = "SELECT * FROM comic
+                      WHERE $releaseDate < release_date
+                      AND release_date <= date()
+                      ORDER BY date(release_date) DESC, comic_id DESC
+                      LIMIT 1";
+        $row       = $this->getDb()->get_row($query);
+
+        if ($row) {
+            return $this->build($className, $row);
+        } else {
+            return null;
+        }
+    }
+
+    /**
+     * @param $table
+     * @return mixed|null
+     */
     public function fetchRandom($table)
     {
         $className = '\Lib\\' . ucfirst(strtolower($table));
@@ -275,6 +367,10 @@ class Dao
         }
     }
 
+    /**
+     * @param $table
+     * @return int
+     */
     public function getTotal($table)
     {
         $query = "SELECT COUNT(*) AS total FROM $table";
@@ -283,6 +379,11 @@ class Dao
         return (int)$row->total;
     }
 
+    /**
+     * @param $email
+     * @param $password
+     * @return null
+     */
     public function authenticate($email, $password)
     {
         $passwordHash = new Password();

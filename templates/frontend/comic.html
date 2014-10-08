@@ -9,14 +9,14 @@
     <div class="small-9 columns">
         <div class="row">
             <div class="small-6 columns">
-                <h4>"{{ comic.title }}" posted on {{ comic.releaseDate | date("D d-m-y") }}</h4>
+                <h4>"{{ comic.title }}" posted on {{ comic.releaseDate | date("D d.M.Y") }}</h4>
             </div>
             <div class="small-6 columns no-pad-right">
                 <div class="button-bar right">
                     <ul class="button-group ">
                         <li><a href="/comic/{{ first.comicId }}" class="small button {% if prev is empty %} secondary disabled {% endif %}"><i class="fa fa-angle-double-left fa-lg"></i></a></li>
-                        <li><a href="/comic/{{ prev.comicId }}" class="small button {% if prev is empty %} secondary disabled {% endif %}"><i class="fa fa-angle-left fa-lg"></i></a></li>
-                        <li><a href="/comic/{{ next.comicId }}" class="small button {% if next is empty %} secondary disabled {% endif %}"><i class="fa fa-angle-right fa-lg"></i></a></li>
+                        <li><a rel="prev" href="/comic/{{ prev.comicId }}" class="small button {% if prev is empty %} secondary disabled {% endif %}"><i class="fa fa-angle-left fa-lg"></i></a></li>
+                        <li><a rel="next" href="/comic/{{ next.comicId }}" class="small button {% if next is empty %} secondary disabled {% endif %}"><i class="fa fa-angle-right fa-lg"></i></a></li>
                         <li><a href="/comic/{{ last.comicId }}" class="small button {% if next is empty %} secondary disabled {% endif %}"><i class="fa fa-angle-double-right fa-lg"></i></a></li>
                         <li><a href="/comic/{{ rand.comicId }}" class="small button"><i class="fa fa-refresh"></i></a></li>
                     </ul>
