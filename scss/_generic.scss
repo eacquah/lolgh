@@ -37,7 +37,9 @@ iframe[id^='twitter-widget-'] {
 }
 
 .fb-like-box iframe {
-  width: 75% !important;
+  width: 100% !important;
+  height: 100%! important;
+  z-index: 1;
 }
 
 .no-pad-right {
@@ -50,4 +52,13 @@ iframe[id^='twitter-widget-'] {
 
 .centered{
   text-align: center;
+}
+
+.sidebar {
+  height: 100% important;
+  overflow: hidden;
+}
+
+footer {
+  z-index: 999;
 }
