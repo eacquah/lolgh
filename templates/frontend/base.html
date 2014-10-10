@@ -54,114 +54,119 @@
     fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));</script>
 
-<!--<div class="mobile off-canvas-wrap" data-offcanvas>
+<div class="mobile off-canvas-wrap" data-offcanvas>
     <div class="inner-wrap">
-        <nav class="tab-bar">
+
+        <nav class="tab-bar show-for-small">
             <section class="left-small">
                 <a class="left-off-canvas-toggle menu-icon" href="#"><span></span></a>
             </section>
 
             <section class="middle tab-bar-section">
-                <h1 class="title">Foundation</h1>
-            </section>
-
-            <section class="right-small">
-                <a class="right-off-canvas-toggle menu-icon" href="#"><span></span></a>
+                <h1><a href="/">LolGH</a></h1>
             </section>
         </nav>
 
         <aside class="left-off-canvas-menu">
             <ul class="off-canvas-list">
                 <li><label>Foundation</label></li>
-                <li><a href="#">The Psychohistorians</a></li>
-                <li><a href="#">...</a></li>
-            </ul>
-        </aside>
+                {% if page == '' %}
+                <li class="active"><a href="/"><i class="fa fa-home fa-fw"></i>&nbsp;Home</a></li>
+                {% else %}
+                <li><a href="/"><i class="fa fa-home fa-fw"></i>&nbsp;Home</a></li>
+                {% endif %}
 
-        <aside class="right-off-canvas-menu">
-            <ul class="off-canvas-list">
-                <li><label>Users</label></li>
-                <li><a href="#">Hari Seldon</a></li>
-                <li><a href="#">...</a></li>
+                {% if page == 'comic' %}
+                <li class="active"><a href="/comic"><i class="fa fa-meh-o fa-fw"></i>&nbsp;Comics</a></li>
+                {% else %}
+                <li><a href="/comic"><i class="fa fa-meh-o fa-fw"></i>&nbsp;Comics</a></li>
+                {% endif %}
+
+                {% if page == 'toon' %}
+                <li class="active"><a href="/toon"><i class="fa fa-video-camera fa-fw"></i>&nbsp;Toons</a></li>
+                {% else %}
+                <li><a href="/toon"><i class="fa fa-video-camera fa-fw"></i>&nbsp;Toons</a></li>
+                {% endif %}
+
+                {% if page == 'contact' %}
+                <li class="active"><a href="/contact"><i class="fa fa-comments-o fa-fw"></i>&nbsp;Contact</a></li>
+                {% else %}
+                <li><a href="/contact"><i class="fa fa-comments-o fa-fw"></i>&nbsp;Contact</a></li>
+                {% endif %}
             </ul>
         </aside>
 
         <section class="main-section">
-            &lt;!&ndash; content goes here &ndash;&gt;
+            <header>
+                <div class="contain-to-grid fixed hide-for-small">
+                    <nav class="top-bar" data-topbar role="navigation">
+                        <ul class="title-area">
+                            <li class="name">
+                                <h1><a href="/">LolGH</a></h1>
+                            </li>
+                        </ul>
+                        <section class="top-bar-section"> <!-- Right Nav Section -->
+                            <ul class="right">
+
+                                {% if page == '' %}
+                                <li class="active"><a href="/"><i class="fa fa-home fa-fw"></i>&nbsp;Home</a></li>
+                                {% else %}
+                                <li><a href="/"><i class="fa fa-home fa-fw"></i>&nbsp;Home</a></li>
+                                {% endif %}
+
+                                {% if page == 'comic' %}
+                                <li class="active"><a href="/comic"><i class="fa fa-meh-o fa-fw"></i>&nbsp;Comics</a></li>
+                                {% else %}
+                                <li><a href="/comic"><i class="fa fa-meh-o fa-fw"></i>&nbsp;Comics</a></li>
+                                {% endif %}
+
+                                {% if page == 'toon' %}
+                                <li class="active"><a href="/toon"><i class="fa fa-video-camera fa-fw"></i>&nbsp;Toons</a></li>
+                                {% else %}
+                                <li><a href="/toon"><i class="fa fa-video-camera fa-fw"></i>&nbsp;Toons</a></li>
+                                {% endif %}
+
+                                {% if page == 'contact' %}
+                                <li class="active"><a href="/contact"><i class="fa fa-comments-o fa-fw"></i>&nbsp;Contact</a></li>
+                                {% else %}
+                                <li><a href="/contact"><i class="fa fa-comments-o fa-fw"></i>&nbsp;Contact</a></li>
+                                {% endif %}
+
+                            </ul>
+                        </section>
+                    </nav>
+                </div>
+
+            </header>
+
+            <div id="content">
+                {% block content %}{% endblock %}
+            </div>
+
+            <footer>
+                {% block footer %}
+                <div class="panel">
+                    <div class="row">
+                        <div class="medium-6 large-6 columns">My Site © {{ "now"|date("Y") }} . Powered by
+                            <a href="http://spacebarweb.com" target="_blank"/> SpacebarWeb</div>
+                        <div class="medium-6 large-6 columns">
+                            <ul class="inline-list right">
+                                <li><a target="_blank" href="https://www.facebook.com/lolgh"><i class="fa fa-facebook fa-lg"></i></a></li>
+                                <li><a target="_blank" href="https://twitter.com/Lol_GH"><i class="fa fa-twitter fa-lg"></i></a></li>
+                                <li><a target="_blank" href="https://www.youtube.com/user/LOLghTOONS/videos"><i class="fa fa-youtube fa-lg`"></i></a></li>
+                                <li><a target="_blank" href="https://plus.google.com/b/114851120518114779841/"><i class="fa fa-google-plus fa-lg`"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                {% endblock %}
+            </footer>
+
         </section>
 
         <a class="exit-off-canvas"></a>
-
-    </div>
-</div>-->
-
-<header>
-    <div class="contain-to-grid fixed">
-        <nav class="top-bar" data-topbar role="navigation">
-            <ul class="title-area">
-                <li class="name">
-                    <h1><a href="/">LolGH</a></h1>
-                </li>
-            </ul>
-            <section class="top-bar-section"> <!-- Right Nav Section -->
-                <ul class="right">
-
-                    {% if page == '' %}
-                        <li class="active"><a href="/"><i class="fa fa-home fa-fw"></i>&nbsp;Home</a></li>
-                    {% else %}
-                        <li><a href="/"><i class="fa fa-home fa-fw"></i>&nbsp;Home</a></li>
-                    {% endif %}
-
-                    {% if page == 'comic' %}
-                        <li class="active"><a href="/comic"><i class="fa fa-meh-o fa-fw"></i>&nbsp;Comics</a></li>
-                    {% else %}
-                        <li><a href="/comic"><i class="fa fa-meh-o fa-fw"></i>&nbsp;Comics</a></li>
-                    {% endif %}
-
-                    {% if page == 'toon' %}
-                        <li class="active"><a href="/toon"><i class="fa fa-video-camera fa-fw"></i>&nbsp;Toons</a></li>
-                    {% else %}
-                        <li><a href="/toon"><i class="fa fa-video-camera fa-fw"></i>&nbsp;Toons</a></li>
-                    {% endif %}
-
-                    {% if page == 'contact' %}
-                        <li class="active"><a href="/contact"><i class="fa fa-comments-o fa-fw"></i>&nbsp;Contact</a></li>
-                    {% else %}
-                        <li><a href="/contact"><i class="fa fa-comments-o fa-fw"></i>&nbsp;Contact</a></li>
-                    {% endif %}
-
-                </ul>
-            </section>
-        </nav>
-    </div>
-
-
-
-</header>
-
-<div id="content">
-    {% block content %}{% endblock %}
-</div>
-
-<footer>
-    {% block footer %}
-    <div class="panel">
-        <div class="row">
-            <div class="medium-6 large-6 columns">My Site © {{ "now"|date("Y") }} . Powered by
-                <a href="http://spacebarweb.com" target="_blank"/> SpacebarWeb</div>
-            <div class="medium-6 large-6 columns">
-                <ul class="inline-list right">
-                    <li><a target="_blank" href="https://www.facebook.com/lolgh"><i class="fa fa-facebook fa-lg"></i></a></li>
-                    <li><a target="_blank" href="https://twitter.com/Lol_GH"><i class="fa fa-twitter fa-lg"></i></a></li>
-                    <li><a target="_blank" href="https://www.youtube.com/user/LOLghTOONS/videos"><i class="fa fa-youtube fa-lg`"></i></a></li>
-                    <li><a target="_blank" href="https://plus.google.com/b/114851120518114779841/"><i class="fa fa-google-plus fa-lg`"></i></a></li>
-                </ul>
-            </div>
-        </div>
-    </div>
-    {% endblock %}
-</footer>
-
+    </div><!--/innerWrapp-->
+</div><!--/offCanvasWrap-->
 
 <script src="/bower_components/jquery/dist/jquery.min.js"></script>
 <script src="/bower_components/foundation/js/foundation.min.js"></script>
