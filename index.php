@@ -11,6 +11,7 @@ $param = isset($_GET['param']) ? strip_tags($_GET['param']) : 0;
 
 $template = null;
 $vars     = array();
+$baseUrl  = 'http://' . $_SERVER['HTTP_HOST'];
 
 // Default meta data
 $metadata = array(
@@ -29,7 +30,11 @@ $metadata = array(
 // Frontend Controller
 switch ($page) {
     case '':
+        // Custom meta data
+        $pageUrl = $baseUrl;
+
         $template = '@frontend/index.html';
+        $vars['pageTitle']  = 'A laugh a day...';
         break;
 
     case 'contact':
@@ -50,7 +55,18 @@ switch ($page) {
             mail($from, $subject, $reply, "From: hello@lolgh.com\n");
             $vars['success'] = "Thank you for sending us feedback";
         }
+
+        // Custom meta data
+        $pageUrl = $baseUrl . '/contact';
+        $metadata['ogTitle'] = 'Lolgh . Get in touch';
+        $metadata['ogUrl'] = $pageUrl;
+        $metadata['ogDescription'] = 'Lolgh . Get in touch';
+        $metadata['twitterUrl'] = $pageUrl;
+        $metadata['twitterTitle'] = 'Lolgh . Get in touch';
+        $metadata['twitterDescription'] = 'Lolgh . Get in touch';
+
         $template = '@frontend/contact.html';
+        $vars['pageTitle']  = 'Get in Touch!';
         break;
 
     case 'toon':
@@ -62,9 +78,21 @@ switch ($page) {
             $toon = $dao->fetchRecent('toon');
         }
         if ($toon) {
+            // Custom meta data
+            $pageUrl = $baseUrl . '/comic/' . $toon->getToonId();
+            $metadata['ogTitle'] = $toon->getTitle();
+            $metadata['ogImage'] = 'http://img.youtube.com/vi/' . $toon->getUrl() . '/mqdefault.jpg';
+            $metadata['ogUrl'] = $pageUrl;
+            $metadata['ogDescription'] = $toon->getTitle();
+            $metadata['twitterUrl'] = $pageUrl;
+            $metadata['twitterTitle'] = $toon->getTitle();
+            $metadata['twitterDescription'] = $toon->getTitle();
+            $metadata['twitterImage'] = 'http://img.youtube.com/vi/' . $toon->getUrl() . '/mqdefault.jpg';
+
             $template = '@frontend/toon.html';
             $toons    = $dao->fetchReleased('toon');
             $vars     = array(
+                'pageTitle' => $toon->getTitle(),
                 'toon'  => $toon,
                 'toons' => $toons
             );
@@ -81,6 +109,18 @@ switch ($page) {
             $comic = $dao->fetchRecentComic();
         }
         if ($comic) {
+            // Custom meta data
+            $pageUrl = $baseUrl . '/comic/' . $comic->getComicId();
+            $metadata['ogTitle'] = $comic->getTitle();
+            $metadata['ogImage'] = $comic->getUrl();
+            $metadata['ogUrl'] = $pageUrl;
+            $metadata['ogDescription'] = $comic->getTitle();
+            $metadata['twitterUrl'] = $pageUrl;
+            $metadata['twitterTitle'] = $comic->getTitle();
+            $metadata['twitterDescription'] = $comic->getTitle();
+            $metadata['twitterImage'] = $comic->getUrl();
+
+            // Get page vars
             $comicId = $comic->getComicId();
             $releaseDate = $comic->getReleaseDate();
             $total   = $dao->getTotal('comic');
@@ -90,6 +130,7 @@ switch ($page) {
             $next    = $dao->fetchNextComic($releaseDate);
             $rand    = $dao->fetchRandom('comic');
             $vars    = array(
+                'pageTitle' => $comic->getTitle(),
                 'comic' => $comic,
                 'first' => $first,
                 'last'  => $last,
