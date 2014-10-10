@@ -65,11 +65,18 @@
             <section class="middle tab-bar-section">
                 <h1><a href="/">LolGH</a></h1>
             </section>
+
+            <section class="right-large">
+                <ul class="inline-list right">
+                    <li><a target="_blank" href="https://www.facebook.com/lolgh"><i class="fa fa-facebook"></i></a></li>
+                    <li><a target="_blank" href="https://twitter.com/Lol_GH"><i class="fa fa-twitter"></i></a></li>
+                </ul>
+            </section>
         </nav>
 
         <aside class="left-off-canvas-menu">
             <ul class="off-canvas-list">
-                <li><label>Foundation</label></li>
+                <li><label>Menu</label></li>
                 {% if page == '' %}
                 <li class="active"><a href="/"><i class="fa fa-home fa-fw"></i>&nbsp;Home</a></li>
                 {% else %}
@@ -143,18 +150,18 @@
                 {% block content %}{% endblock %}
             </div>
 
-            <footer>
+            <footer class="hide-for-small">
                 {% block footer %}
                 <div class="panel">
                     <div class="row">
-                        <div class="medium-6 large-6 columns">My Site © {{ "now"|date("Y") }} . Powered by
+                        <div class="medium-6 large-6 small-6 columns">LolGH © {{ "now"|date("Y") }} . Powered by
                             <a href="http://spacebarweb.com" target="_blank"/> SpacebarWeb</div>
-                        <div class="medium-6 large-6 columns">
+                        <div class="medium-6 large-6 small-6 columns">
                             <ul class="inline-list right">
                                 <li><a target="_blank" href="https://www.facebook.com/lolgh"><i class="fa fa-facebook fa-lg"></i></a></li>
                                 <li><a target="_blank" href="https://twitter.com/Lol_GH"><i class="fa fa-twitter fa-lg"></i></a></li>
-                                <li><a target="_blank" href="https://www.youtube.com/user/LOLghTOONS/videos"><i class="fa fa-youtube fa-lg`"></i></a></li>
-                                <li><a target="_blank" href="https://plus.google.com/b/114851120518114779841/"><i class="fa fa-google-plus fa-lg`"></i></a></li>
+                                <li><a target="_blank" href="https://www.youtube.com/user/LOLghTOONS/videos"><i class="fa fa-youtube fa-lg"></i></a></li>
+                                <li><a target="_blank" href="https://plus.google.com/b/114851120518114779841/"><i class="fa fa-google-plus fa-lg"></i></a></li>
                             </ul>
                         </div>
                     </div>
