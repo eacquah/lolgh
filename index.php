@@ -256,6 +256,7 @@ if ($page == 'admin') {
 }
 
 if (null === $template) {
+    $vars['pageTitle']  = 'You\'re lost? Well so are we!';
     $template = '@frontend/404.html';
 }
 
