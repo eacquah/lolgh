@@ -290,7 +290,7 @@ class Dao
     {
         $className = '\Lib\\' . ucfirst(strtolower('comic'));
         $query     = "SELECT * FROM comic
-                      WHERE release_date > date($releaseDate)
+                      WHERE release_date > $releaseDate
                       AND release_date <= date()
                       ORDER BY date(release_date) ASC, comic_id ASC
                       LIMIT 1";
@@ -334,7 +334,7 @@ class Dao
     {
         $className = '\Lib\\' . ucfirst(strtolower('comic'));
         $query     = "SELECT * FROM comic
-                      WHERE release_date < date($releaseDate)
+                      WHERE release_date < $releaseDate
                       AND release_date <= date()
                       ORDER BY date(release_date) DESC, comic_id DESC
                       LIMIT 1";
