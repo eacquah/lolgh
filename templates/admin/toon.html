@@ -15,7 +15,8 @@
     {% endif %}
     {% for toon in toons %}
     <div class="large-4 small-6 columns">
-        <img src="http://placehold.it/500x500&text=Thumbnail">
+        <!--<img src="http://placehold.it/500x500&text=Thumbnail">-->
+        <img src="http://img.youtube.com/vi/{{ toon.url }}/mqdefault.jpg"/>
         <div class="panel">
             <h5 class="toon-admin-header">{{ toon.title }}</h5>
             <p>Release date: {{ toon.releaseDate|date("D M j, Y") }}
