@@ -9,3 +9,9 @@
     text-align: center !important;
   }
 }
+
+@media (min-width: 700px) {
+  .at4-follow-container {
+    display: none;
+  }
+}
