@@ -8,12 +8,13 @@
 
 <div class="row">
     <a href="/admin/add-comic" class="button"><i class="fa fa-plus-circle"></i>&nbsp;Add Comic</a>
+    <a href="{{ viewUrl }}" class="button"><i class="fa fa-search-plus"></i>&nbsp;{{ viewTxt }}</a>
 </div>
 <div class="row">
     {% if success %}
     <div data-alert class="alert-box success">{{ success }}</div>
     {% endif %}
-    <table>
+    <table style="min-width: 100%">
         <thead>
             <tr>
                 <th>Release Date</th>

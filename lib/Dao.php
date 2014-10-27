@@ -145,8 +145,10 @@ class Dao
   public function fetchBatch($table, $offset = 0, $limit = 50)
   {
     $results   = array();
+    $index     = strtolower($table) . '_id';
     $className = '\Lib\\' . ucfirst(strtolower($table));
     $query     = "SELECT * FROM $table
+                  ORDER BY $index DESC
                   LIMIT $offset, $limit";
     $rows      = $this->getDb()->get_rows($query);
     foreach ($rows as $row) {

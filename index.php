@@ -175,12 +175,26 @@ if ($page == 'admin') {
             // Check if delete is required
             if ($param1 != '' && preg_match("/(del)-[0-9]*/i", $param1)) {
                 $delId = end(explode('-', $param1));
+                $comic = $dao->findById('comic', $delId);
+                unlink('/img/comics/' . $comic->getUrl());
                 $db->delete('comic', array ('comic_id' => $delId));
                 $vars['success'] = 'Comic has been successfully deleted!';
             }
             $template       = '@admin/comic.html';
-            $comics         = $dao->fetchAll('comic', null, 'ORDER BY comic_id DESC');
-            $vars['comics'] = $comics;;
+
+            if ($param1 != '' && $param1 == 'all') {
+                $comics = $dao->fetchAll('comic', null, 'ORDER BY comic_id DESC');
+                $viewUrl = '/admin/comic';
+                $viewTxt = 'View Latest 10';
+            } else {
+                $comics = $dao->fetchBatch('comic', 0, 10);
+                $viewUrl = '/admin/comic/all';
+                $viewTxt = 'View All';
+            }
+
+            $vars['comics'] = $comics;
+            $vars['viewUrl'] = $viewUrl;
+            $vars['viewTxt'] = $viewTxt;
             break;
 
         case 'toon':
