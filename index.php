@@ -75,7 +75,7 @@ switch ($page) {
         if ($param > 0) {
             $toon = $dao->findById('toon', $param);
         } else {
-            $toon = $dao->fetchRecent('toon');
+            $toon = $dao->fetchRecentToon();
         }
         if ($toon) {
             // Custom meta data

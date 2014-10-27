@@ -221,6 +221,24 @@ class Dao
     }
 
     /**
+     * @return mixed|null
+     */
+    public function fetchRecentToon()
+    {
+      $className = '\Lib\\' . ucfirst(strtolower('toon'));
+      $query     = "SELECT * FROM toon
+                        WHERE release_date <= date()
+                        ORDER BY date(release_date) DESC, toon_id DESC
+                        LIMIT 1";
+      $row       = $this->getDb()->get_row($query);
+      if ($row) {
+        return $this->build($className, $row);
+      } else {
+        return null;
+      }
+    }
+
+    /**
      * Fetches the first result from a table as an object
      *
      * @param $table
