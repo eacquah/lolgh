@@ -14,10 +14,10 @@
             <div class="large-6 medium-6 small-12 columns no-pad-right">
                 <div class="comic-nav button-bar right">
                     <ul class="button-group ">
-                        <li><a title="First episode" href="/comic/{{ first.comicId }}" class="small button {% if prev is empty %} secondary disabled {% endif %}"><i class="fa fa-angle-double-left fa-lg"></i></a></li>
-                        <li><a title="Previous episode" rel="prev" href="/comic/{{ prev.comicId }}" class="small button {% if prev is empty %} secondary disabled {% endif %}"><i class="fa fa-angle-left fa-lg"></i></a></li>
-                        <li><a title="Next episode" rel="next" href="/comic/{{ next.comicId }}" class="small button {% if next is empty %} secondary disabled {% endif %}"><i class="fa fa-angle-right fa-lg"></i></a></li>
-                        <li><a title="Most recent episode" href="/comic/{{ last.comicId }}" class="small button {% if next is empty %} secondary disabled {% endif %}"><i class="fa fa-angle-double-right fa-lg"></i></a></li>
+                        <li><a title="First episode" href="/comic/{{ first.comicId }}" class="small button secondary{% if prev is empty %} disabled {% endif %}"><i class="fa fa-angle-double-left fa-lg"></i></a></li>
+                        <li><a title="Previous episode" rel="prev" href="/comic/{{ prev.comicId }}" class="small button secondary{% if prev is empty %} disabled {% endif %}"><i class="fa fa-angle-left fa-lg"></i></a></li>
+                        <li><a title="Next episode" rel="next" href="/comic/{{ next.comicId }}" class="small button secondary{% if next is empty %} disabled {% endif %}"><i class="fa fa-angle-right fa-lg"></i></a></li>
+                        <li><a title="Most recent episode" href="/comic/{{ last.comicId }}" class="small button secondary{% if next is empty %} disabled {% endif %}"><i class="fa fa-angle-double-right fa-lg"></i></a></li>
                         <li><a title="Random :)" href="/comic/{{ rand.comicId }}" class="small success button"><i class="fa fa-refresh"></i></a></li>
                     </ul>
                 </div>
@@ -27,9 +27,7 @@
             <img src="http://lolgh.com/cms/content/lol_gh/{{ comic.url }}"/>
             <!--<img src="http://placehold.it/400x300&text=[img]"/>-->
             <!-- Go to www.addthis.com/dashboard to customize your tools -->
-            <div class="hide-for-small">
-                <div class="addthis_sharing_toolbox"></div>
-            </div>
+            <div class="addthis_sharing_toolbox"></div>
         </div>
     </div>
 
