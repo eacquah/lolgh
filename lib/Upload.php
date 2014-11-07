@@ -667,48 +667,4 @@ class Upload {
             die(    $msg);
         }
     }
-} // END OF CLASS
-/*
-
-YOU CAN DELETE EVERYTHING FROM HERE ONWARDS (although you may want to keep a closing ?>)
-
-public $uploadTo        = 'uploaded/';
-    public $source_file     = '';
-    public $newWidth         = '';
-    public $newHeight         = '';
-    public $newName         = '';
-    public $namePrefix         = '';
-    public $newPath         = '';
-    public $duplicates        = 'u'; // u = make unique / o = overwrite / e = error / a = abort
-    public $safeRename        = 'true';
-    public $aspectRatio     = 'true';
-    public $padToFit         = 'true';
-    public $upscale         = 'false';
-    public $setPosition        = 'cc';
-    public $padColour         = '#FFFFFF';
-    public $padTransparent    = 'true'; // if uploading a GIF or PNG then set background as transparent - this overrides $padColour
-    public $returnType        = 'fullPath';
-*/
-//if(isset($_FILES['image'])) {
-//    $myImage = new _image;
-//    $myImage->uploadTo = 'testDir/';
-//    $res = $myImage->upload($_FILES['image']);
-//    if($res) {
-//        // RESIZE
-//        //$myImage->padColour = '#222222';
-//        $myImage->newWidth = 400;
-//        $myImage->newHeight = 300;
-//        $i = $myImage->resize();
-//        echo $i;
-//    }
-//} else {
-//    ?>
-<!--    <form action="" method="post" enctype="multipart/form-data" name="form1" id="form1">-->
-<!--        <p>-->
-<!--            <input type="file" name="image" id="image" />-->
-<!--        </p>-->
-<!--        <p>-->
-<!--            <input type="submit" name="button" id="button" value="Submit" />-->
-<!--        </p>-->
-<!--    </form>-->
-<?php //} ?><!-- -->
+}

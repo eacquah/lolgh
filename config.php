@@ -40,3 +40,4 @@ include('lib/Dao.php');
 include('lib/Password.php');
 include('lib/Upload.php');
 include('lib/Twitter.php');
+include('lib/Api.php');
