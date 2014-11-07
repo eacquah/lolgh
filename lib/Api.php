@@ -85,7 +85,8 @@ class Api
             foreach ($comics as $comic) {
               $return[] = (array) $comic;
             }
-            echo str_replace('\\u0000', "", json_encode($return));
+            $return = str_replace('\\u0000', "", json_encode($return));
+            echo str_replace('*', "", json_encode($return));
             break;
           } elseif (in_array('toons', $params)) {
             $toons = $this->getDao()->fetchBatch('toon', 0, 5);
@@ -93,7 +94,8 @@ class Api
             foreach ($toons as $toon) {
               $return[] = (array) $toon;
             }
-            echo str_replace('\\u0000', "", json_encode($return));
+            $return = str_replace('\\u0000', "", json_encode($return));
+            echo str_replace('*', "", json_encode($return));
           } else{
             header('HTTP/1.1 404 Not Found');
           }

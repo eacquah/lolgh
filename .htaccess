@@ -2,6 +2,10 @@ Options +FollowSymLinks -MultiViews
 RewriteEngine On
 RewriteBase /
 
+<ifModule mod_headers.c>
+    Header set Access-Control-Allow-Origin: *
+</ifModule>
+
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 
