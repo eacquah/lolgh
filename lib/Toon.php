@@ -115,4 +115,9 @@ class Toon
     {
         return $this->url;
     }
+
+    public function jsonSerialize()
+    {
+        return get_object_vars($this);
+    }
 } 

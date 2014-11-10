@@ -83,19 +83,17 @@ class Api
             $comics = $this->getDao()->fetchBatch('comic', 0, 20);
             $return = array();
             foreach ($comics as $comic) {
-              $return[] = (array) $comic;
+              $return[] = $comic->jsonSerialize();
             }
-            $return = str_replace('\\u0000', "", json_encode($return));
-            echo str_replace('*', "", json_encode($return));
+            echo json_encode($return);
             break;
           } elseif (in_array('toons', $params)) {
             $toons = $this->getDao()->fetchBatch('toon', 0, 5);
             $return = array();
             foreach ($toons as $toon) {
-              $return[] = (array) $toon;
+              $return[] = $toon->jsonSerialize();
             }
-            $return = str_replace('\\u0000', "", json_encode($return));
-            echo str_replace('*', "", json_encode($return));
+            echo json_encode($return);
           } else{
             header('HTTP/1.1 404 Not Found');
           }
