@@ -8,6 +8,9 @@
     <link rel="stylesheet" href="/stylesheets/app.css"/>
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
     <script src="/bower_components/modernizr/modernizr.js"></script>
+    <!--[if lt IE 9]>
+    <script src="/bower_components/html5shiv/dist/html5shiv.js"></script>
+    <![endif]-->
     {% endblock %}
 </head>
 <body>
@@ -55,10 +58,7 @@
             </section>
         </nav>
     </div>
-
 </header>
-
-
 
 
 <div class="row main">
@@ -83,16 +83,6 @@
 
     </div>
 </div>
-
-<!--<footer class="row">
-    <div class="large-12 columns"><hr/>
-        {% block footer %}
-            <div class="large-6 columns large-centered">
-                <p>Lolgh © Copyright {{ "now"|date("Y") }}</p>
-            </div>
-        {% endblock %}
-    </div>
-</footer>-->
 
 <script src="/bower_components/jquery/dist/jquery.min.js"></script>
 <script src="/bower_components/foundation/js/foundation.min.js"></script>
