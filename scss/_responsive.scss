@@ -8,6 +8,9 @@
   .comic-nav{
     text-align: center !important;
   }
+  .responsive-button {
+    @include button($button-sml, $primary-color, 0px, false, false, false);
+  }
 }
 
 @media (min-width: 700px) {

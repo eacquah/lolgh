@@ -8,12 +8,12 @@
 <div class="row main">
     <div class="large-9 small-12 columns">
         <div class="row">
-            <div class="large-6 medium-6 small-12 columns">
+            <div class="large-6 medium-6 small-12 columns hide-for-medium-up">
                 <h4>"{{ comic.title }}" posted on {{ comic.releaseDate | date("D d.M.Y") }}</h4>
             </div>
-            <div class="large-6 medium-6 small-12 columns no-pad-right">
-                <div class="comic-nav button-bar right">
-                    <ul class="button-group ">
+            <div class="large-6 medium-6 small-12 columns no-pad-right small-centered">
+                <div class="comic-nav button-bar small-text-center">
+                    <ul class="button-group even-5">
                         <li><a title="First episode" href="/comic/{{ first.comicId }}" class="small button secondary-btn {% if prev is empty %} secondary disabled {% endif %}"><i class="fa fa-angle-double-left fa-lg"></i></a></li>
                         <li><a title="Previous episode" rel="prev" href="/comic/{{ prev.comicId }}" class="small button secondary-btn {% if prev is empty %} secondary disabled {% endif %}"><i class="fa fa-angle-left fa-lg"></i></a></li>
                         <li><a title="Next episode" rel="next" href="/comic/{{ next.comicId }}" class="small button secondary-btn {% if next is empty %} secondary disabled {% endif %}"><i class="fa fa-angle-right fa-lg"></i></a></li>
