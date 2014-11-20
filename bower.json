@@ -7,6 +7,8 @@
     "masonry": "~3.1.5"
   },
   "devDependencies": {
-    "html5shiv": "~3.7.2"
+    "html5shiv": "~3.7.2",
+    "isotope": "~2.0.1",
+    "imagesloaded": "~3.1.8"
   }
 }

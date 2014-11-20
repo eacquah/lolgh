@@ -3,11 +3,12 @@
  * Wrapper class around the Twitter API for PHP
  * Based on the class originally developed by David Billingham
  * and accessible at http://twitter.slawcup.com/twitter.class.phps
- * @author David Billingham <david@slawcup.com>
- * @author Aaron Brazell <aaron@technosailor.com>
- * @author Keith Casey <caseysoftware@gmail.com>
- * @version 1.1
- * @package php-twitter
+ *
+ * @author     David Billingham <david@slawcup.com>
+ * @author     Aaron Brazell <aaron@technosailor.com>
+ * @author     Keith Casey <caseysoftware@gmail.com>
+ * @version    1.1
+ * @package    php-twitter
  * @subpackage classes
  */
 
@@ -27,21 +28,21 @@ class Twitter
 
     public function __construct()
     {
-      // Fetch new Twitter Instance
-      Codebird::setConsumerKey($this->consumer_key, $this->consumer_secret);
-      $this->twitter = Codebird::getInstance();
+        // Fetch new Twitter Instance
+        Codebird::setConsumerKey($this->consumer_key, $this->consumer_secret);
+        $this->twitter = Codebird::getInstance();
 
-      // Set access token
-      $this->twitter->setToken($this->access_token, $this->access_secret);
+        // Set access token
+        $this->twitter->setToken($this->access_token, $this->access_secret);
     }
 
     public function getTimeLine()
     {
-      return (array) $this->twitter->statuses_userTimeline();
+        return (array)$this->twitter->statuses_userTimeline();
     }
 
     public function tweet($message)
     {
-      return $this->twitter->statuses_update(['status' => $message]);
+        return $this->twitter->statuses_update(['status' => $message]);
     }
 }

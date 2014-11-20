@@ -16,25 +16,25 @@ class Api
 
     protected $params;
 
-  protected $twitter;
+    protected $twitter;
 
     /**
      * @return mixed
      */
     public function getDao()
     {
-      return $this->dao;
+        return $this->dao;
     }
 
-  /**
-   * @param mixed $dao
-   *
-   * @return $this
-   */
+    /**
+     * @param mixed $dao
+     *
+     * @return $this
+     */
     public function setDao($dao)
     {
-      $this->dao = $dao;
-      return $this;
+        $this->dao = $dao;
+        return $this;
     }
 
     /**
@@ -42,89 +42,93 @@ class Api
      */
     public function getMethod()
     {
-      return $this->method;
+        return $this->method;
     }
 
-  /**
-   * @param mixed $method
-   *
-   * @return $this
-   */
+    /**
+     * @param mixed $method
+     *
+     * @return $this
+     */
     public function setMethod($method)
     {
-      $this->method = $method;
-      return $this;
+        $this->method = $method;
+        return $this;
     }
 
-  /**
-   * @return mixed
-   */
-  public function getParams() {
-    return $this->params;
-  }
+    /**
+     * @return mixed
+     */
+    public function getParams()
+    {
+        return $this->params;
+    }
 
-  /**
-   * @param mixed $params
-   *
-   * @return $this
-   */
-  public function setParams(array $params) {
-    $this->params = $params;
-    return $this;
-  }
+    /**
+     * @param mixed $params
+     *
+     * @return $this
+     */
+    public function setParams(array $params)
+    {
+        $this->params = $params;
+        return $this;
+    }
 
-  /**
-   * @return mixed
-   */
-  public function getTwitter() {
-    return $this->twitter;
-  }
+    /**
+     * @return mixed
+     */
+    public function getTwitter()
+    {
+        return $this->twitter;
+    }
 
-  /**
-   * @param mixed $twitter
-   *
-   * @return $this
-   */
-  public function setTwitter($twitter) {
-    $this->twitter = $twitter;
-    return $this;
-  }
+    /**
+     * @param mixed $twitter
+     *
+     * @return $this
+     */
+    public function setTwitter($twitter)
+    {
+        $this->twitter = $twitter;
+        return $this;
+    }
 
     public function processApi()
     {
-      if (!$this->getMethod() || !$this->getParams()){
-        header('HTTP/1.1 405 Method Not Allowed');
-      }
-      switch ($this->getMethod()) {
-        case 'GET':
-          $params = $this->getParams();
-          if (in_array('comics', $params)) {
-            $comics = $this->getDao()->fetchBatch('comic', 0, 20);
-            $return = array();
-            foreach ($comics as $comic) {
-              $return[] = $comic->jsonSerialize();
-            }
-            echo json_encode($return);
-            break;
-          } elseif (in_array('toons', $params)) {
-            $toons = $this->getDao()->fetchBatch('toon', 0, 5);
-            $return = array();
-            foreach ($toons as $toon) {
-              $return[] = $toon->jsonSerialize();
-            }
-            echo json_encode($return);
-          } elseif (in_array('twitter', $params)) {
-            $return = $this->getTwitter()->getTimeLine();
-            echo json_encode($return);
-          } else{
-            header('HTTP/1.1 404 Not Found');
-          }
-          break;
-        default:
-          header('HTTP/1.1 405 Method Not Allowed');
-          header('Allow: GET');
-          break;
-      }
+        if (!$this->getMethod() || !$this->getParams()) {
+            header('HTTP/1.1 405 Method Not Allowed');
+        }
+        switch ($this->getMethod()) {
+            case 'GET':
+                $params = $this->getParams();
+                if (in_array('comics', $params)) {
+                    $comics = $this->getDao()->fetchBatch('comic', 0, 20);
+                    $return = array();
+                    foreach ($comics as $comic) {
+                        $return[] = $comic->jsonSerialize();
+                    }
+                    echo json_encode($return);
+                    break;
+                } elseif (in_array('toons', $params)) {
+                    $toons = $this->getDao()->fetchBatch('toon', 0, 5);
+                    $return = array();
+                    foreach ($toons as $toon) {
+                        $return[] = $toon->jsonSerialize();
+                    }
+                    echo json_encode($return);
+                } elseif (in_array('twitter', $params)) {
+                    $return = $this->getTwitter()->getTimeLine();
+                    echo json_encode($return);
+                } else {
+                    header('HTTP/1.1 404 Not Found');
+                }
+                break;
+            default:
+                header('HTTP/1.1 405 Method Not Allowed');
+                header('Allow: GET');
+                break;
+        }
     }
 
     public function get()

@@ -13,6 +13,14 @@ $(function() {
 
     // Callback function references the event target and adds the 'swipe' class to it
     function swipeHandler( event ){
-        alert('test');
+        //alert('test');
     }
+
+    $('#container').imagesLoaded( function(){
+        $('#container').masonry({
+            itemSelector: '.item',
+            isAnimated: true,
+            isFitWidth: true
+        });
+    })
 });
