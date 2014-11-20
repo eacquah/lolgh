@@ -7,18 +7,17 @@
 {% block content %}
 <div class="row main">
     <div class="large-9 medium-9 small-12 columns">
+        {% if tweets|length %}
         <div id="timeline" class="js-masonry"
              data-masonry-options='{ "columnWidth": 200, "itemSelector": ".item" }'>
-            <div class="item">
-                <img src="http://placehold.it/400x700&text=[img]"/>
-            </div>
-            <div class="item">
-                <img src="http://placehold.it/400x700&text=[img]"/>
-            </div>
-            <div class="item">
-                <img src="http://placehold.it/400x700&text=[img]"/>
-            </div>
+            {% for tweet in tweets %}
+                <div class="item">
+                    <img src="http://placehold.it/400x700&text=[img]"/>
+                    <p>{{ tweet.text }}</p>
+                </div>
+            {% endfor %}
         </div>
+        {% endif %}
         <!--<div class="row">-->
             <!--<div class="row">-->
                 <!--<a class="twitter-timeline" href="https://twitter.com/Lol_GH"-->

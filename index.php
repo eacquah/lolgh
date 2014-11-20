@@ -7,6 +7,8 @@ $db   = new \Lib\Db($dbFile);
 $dao  = new \Lib\Dao();
 $dao->setDb($db);
 
+//var_dump($twitter->getTimeLine()); die();
+
 $page  = isset($_GET['page']) ? strip_tags($_GET['page']) : '';
 $param = isset($_GET['param']) ? strip_tags($_GET['param']) : 0;
 
@@ -36,7 +38,7 @@ switch ($page) {
 
         $template = '@frontend/index.html';
         $vars['pageTitle']  = 'A laugh a day...';
-        $vars['twitterTimeline'] = $twitter->getTimeLine();
+        $vars['tweets'] = $twitter->getTimeLine();
         break;
 
     case 'contact':
