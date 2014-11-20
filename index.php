@@ -2,6 +2,7 @@
 require_once('config.php');
 
 $user = new \Lib\User();
+$twitter = new \Lib\Twitter();
 $db   = new \Lib\Db($dbFile);
 $dao  = new \Lib\Dao();
 $dao->setDb($db);
@@ -35,6 +36,7 @@ switch ($page) {
 
         $template = '@frontend/index.html';
         $vars['pageTitle']  = 'A laugh a day...';
+        $vars['twitterTimeline'] = $twitter->getTimeLine();
         break;
 
     case 'contact':

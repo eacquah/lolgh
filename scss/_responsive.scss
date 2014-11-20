@@ -4,10 +4,10 @@
   }
   .main {
     text-align: center;
+    padding-top: 60px;
   }
   .comic-nav{
     text-align: center !important;
-    padding-top: 60px;
   }
   .responsive-button {
     @include button($button-sml, $primary-color, 0px, false, false, false);

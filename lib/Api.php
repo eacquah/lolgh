@@ -16,6 +16,8 @@ class Api
 
     protected $params;
 
+  protected $twitter;
+
     /**
      * @return mixed
      */
@@ -71,6 +73,23 @@ class Api
     return $this;
   }
 
+  /**
+   * @return mixed
+   */
+  public function getTwitter() {
+    return $this->twitter;
+  }
+
+  /**
+   * @param mixed $twitter
+   *
+   * @return $this
+   */
+  public function setTwitter($twitter) {
+    $this->twitter = $twitter;
+    return $this;
+  }
+
     public function processApi()
     {
       if (!$this->getMethod() || !$this->getParams()){
@@ -93,6 +112,9 @@ class Api
             foreach ($toons as $toon) {
               $return[] = $toon->jsonSerialize();
             }
+            echo json_encode($return);
+          } elseif (in_array('twitter', $params)) {
+            $return = $this->getTwitter()->getTimeLine();
             echo json_encode($return);
           } else{
             header('HTTP/1.1 404 Not Found');
