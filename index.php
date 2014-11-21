@@ -7,7 +7,9 @@ $db   = new \Lib\Db($dbFile);
 $dao  = new \Lib\Dao();
 $dao->setDb($db);
 
-//var_dump($twitter->getTimeLine()); die();
+$timeLine = $twitter->getTimeLine();
+//var_dump($timeLine); die();
+//var_dump($timeLine[1]); die();
 
 $page  = isset($_GET['page']) ? strip_tags($_GET['page']) : '';
 $param = isset($_GET['param']) ? strip_tags($_GET['param']) : 0;

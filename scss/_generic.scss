@@ -67,9 +67,23 @@ footer {
   z-index: 999;
 }
 
-#timeline .item {
+#container .item {
   width: 25%;
 }
-#timeline .item.w2 {
+
+#container .item.w2 {
   width: 50%;
+}
+
+.custom-panel {
+  @include panel(
+    // Sets the panel background color. Default: $panel-pg
+  $bg:#cccccc,
+    // Sets the panel padding amount. Default: $panel-padding
+//  $padding:5px,
+    // Sets the font color based on the darkness of the bg & resets header line-heights for panels. Default: $panel-header-adjust
+  $adjust:true
+  );
+  border-radius: 5px;
+  text-align: center;
 }
