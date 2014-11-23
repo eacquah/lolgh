@@ -39,12 +39,12 @@ class Twitter
     public function getTimeLine()
     {
         $params  = array(
-          'q'=>'filter:images',
+//          'q'=>'filter:images',
           'user_id' => '265872526',
           'exclude_replies' => true,
           'include_rts' => false,
           'include_entities'=> true,
-          'count' => '50',
+          'count' => '20',
         );
         return (array)$this->twitter->statuses_userTimeline($params);
     }

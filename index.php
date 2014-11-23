@@ -3,20 +3,20 @@ require_once('config.php');
 
 $user = new \Lib\User();
 $twitter = new \Lib\Twitter();
-$db   = new \Lib\Db($dbFile);
-$dao  = new \Lib\Dao();
+$db = new \Lib\Db($dbFile);
+$dao = new \Lib\Dao();
 $dao->setDb($db);
 
 $timeLine = $twitter->getTimeLine();
 //var_dump($timeLine); die();
 //var_dump($timeLine[1]); die();
 
-$page  = isset($_GET['page']) ? strip_tags($_GET['page']) : '';
+$page = isset($_GET['page']) ? strip_tags($_GET['page']) : '';
 $param = isset($_GET['param']) ? strip_tags($_GET['param']) : 0;
 
 $template = null;
-$vars     = array();
-$baseUrl  = 'http://' . $_SERVER['HTTP_HOST'];
+$vars = array();
+$baseUrl = 'http://' . $_SERVER['HTTP_HOST'];
 
 // Default meta data
 $metadata = array(
@@ -39,15 +39,15 @@ switch ($page) {
         $pageUrl = $baseUrl;
 
         $template = '@frontend/index.html';
-        $vars['pageTitle']  = 'A laugh a day...';
+        $vars['pageTitle'] = 'A laugh a day...';
         $vars['tweets'] = $twitter->getTimeLine();
         break;
 
     case 'contact':
         if (isset($_POST['email'])) {
             $subject = 'Lolgh Contact';
-            $from    = strip_tags($_POST["email"]); // sender
-            $name    = strip_tags($_POST["name"]);
+            $from = strip_tags($_POST["email"]); // sender
+            $name = strip_tags($_POST["name"]);
             $message = strip_tags($_POST["msg"]);
             $message = wordwrap($message, 70);
             // send mail to us
@@ -56,7 +56,7 @@ switch ($page) {
                 'name' => $name,
                 'msg'  => 'Thanks for getting in touch. We will be in touch shortly'
             );
-            $reply     = $twig->render('@email/contact-reply.html', $emailVars);
+            $reply = $twig->render('@email/contact-reply.html', $emailVars);
             // send mail to user
             mail($from, $subject, $reply, "From: hello@lolgh.com\n");
             $vars['success'] = "Thank you for sending us feedback";
@@ -72,11 +72,11 @@ switch ($page) {
         $metadata['twitterDescription'] = 'Lolgh . Get in touch';
 
         $template = '@frontend/contact.html';
-        $vars['pageTitle']  = 'Get in Touch!';
+        $vars['pageTitle'] = 'Get in Touch!';
         break;
 
     case 'toon':
-        $toon  = null;
+        $toon = null;
         $param = (int)$param;
         if ($param > 0) {
             $toon = $dao->findById('toon', $param);
@@ -96,18 +96,18 @@ switch ($page) {
             $metadata['twitterImage'] = 'http://img.youtube.com/vi/' . $toon->getUrl() . '/mqdefault.jpg';
 
             $template = '@frontend/toon.html';
-            $toons    = $dao->fetchReleased('toon');
-            $vars     = array(
+            $toons = $dao->fetchReleased('toon');
+            $vars = array(
                 'pageTitle' => $toon->getTitle(),
-                'toon'  => $toon,
-                'toons' => $toons
+                'toon'      => $toon,
+                'toons'     => $toons
             );
         }
         break;
 
     case 'comic':
-        $comic    = null;
-        $param    = (int)$param;
+        $comic = null;
+        $param = (int)$param;
         $template = '@frontend/comic.html';
         if ($param > 0) {
             $comic = $dao->findById('comic', $param);
@@ -129,21 +129,21 @@ switch ($page) {
             // Get page vars
             $comicId = $comic->getComicId();
             $releaseDate = $comic->getReleaseDate();
-            $total   = $dao->getTotal('comic');
-            $first   = $dao->fetchFirstComic();
-            $last    = $dao->fetchRecentComic();
-            $prev    = $dao->fetchPreviousComic($releaseDate);
-            $next    = $dao->fetchNextComic($releaseDate);
-            $rand    = $dao->fetchRandom('comic');
-            $vars    = array(
+            $total = $dao->getTotal('comic');
+            $first = $dao->fetchFirstComic();
+            $last = $dao->fetchRecentComic();
+            $prev = $dao->fetchPreviousComic($releaseDate);
+            $next = $dao->fetchNextComic($releaseDate);
+            $rand = $dao->fetchRandom('comic');
+            $vars = array(
                 'pageTitle' => $comic->getTitle(),
-                'comic' => $comic,
-                'first' => $first,
-                'last'  => $last,
-                'prev'  => $prev,
-                'next'  => $next,
-                'rand'  => $rand,
-                'total' => $total,
+                'comic'     => $comic,
+                'first'     => $first,
+                'last'      => $last,
+                'prev'      => $prev,
+                'next'      => $next,
+                'rand'      => $rand,
+                'total'     => $total,
             );
         }
         break;
@@ -155,7 +155,7 @@ if ($page == 'admin') {
     if (!isset($_SESSION['lolgh_admin'])) {
         $param = '';
     } else {
-        $user         = $dao->findById('user', $_SESSION['lolgh_admin']);
+        $user = $dao->findById('user', $_SESSION['lolgh_admin']);
         $vars['user'] = $user;
     }
     switch ($param) {
@@ -164,9 +164,9 @@ if ($page == 'admin') {
             $passwordHash = new \Lib\Password();
             if (isset($_POST['email'])) {
                 array_walk_recursive($_POST, 'mysql_real_escape_string');
-                $email    = $_POST['email'];
+                $email = $_POST['email'];
                 $password = $_POST['password'];
-                $userId   = $dao->authenticate($email, $password);
+                $userId = $dao->authenticate($email, $password);
                 if ($userId) {
                     $_SESSION['lolgh_admin'] = $userId;
                     header('Location: /admin/comic');
@@ -183,10 +183,10 @@ if ($page == 'admin') {
                 $delId = end(explode('-', $param1));
                 $comic = $dao->findById('comic', $delId);
                 unlink('/img/comics/' . $comic->getUrl());
-                $db->delete('comic', array ('comic_id' => $delId));
+                $db->delete('comic', array('comic_id' => $delId));
                 $vars['success'] = 'Comic has been successfully deleted!';
             }
-            $template       = '@admin/comic.html';
+            $template = '@admin/comic.html';
 
             if ($param1 != '' && $param1 == 'all') {
                 $comics = $dao->fetchAll('comic', null, 'ORDER BY comic_id DESC');
@@ -207,11 +207,11 @@ if ($page == 'admin') {
             // Check if delete is required
             if ($param1 != '' && preg_match("/(del)-[0-9]*/i", $param1)) {
                 $delId = end(explode('-', $param1));
-                $db->delete('toon', array ('toon_id' => $delId));
+                $db->delete('toon', array('toon_id' => $delId));
                 $vars['success'] = 'Toon has been successfully deleted!';
             }
-            $template      = '@admin/toon.html';
-            $toons         = $dao->fetchAll('toon', null, 'ORDER BY toon_id DESC');
+            $template = '@admin/toon.html';
+            $toons = $dao->fetchAll('toon', null, 'ORDER BY toon_id DESC');
             $vars['toons'] = $toons;
 
             break;
@@ -221,20 +221,20 @@ if ($page == 'admin') {
                 array_walk_recursive($_POST, 'mysql_real_escape_string');
                 $tmpFile = $_FILES['comic']['tmp_name'];
                 list($width, $height) = getimagesize($tmpFile);
-                $newWidth         = 1000;
-                $imgRatio         = $newWidth / $width;
-                $newHeight        = $height * $imgRatio;
-                $upload           = new \Lib\Upload();
+                $newWidth = 1000;
+                $imgRatio = $newWidth / $width;
+                $newHeight = $height * $imgRatio;
+                $upload = new \Lib\Upload();
                 $upload->uploadTo = 'img/comics/';
 
                 $res = $upload->upload($_FILES['comic']);
                 if ($res) {
                     // RESIZE
-                    $upload->newWidth  = $newWidth;
+                    $upload->newWidth = $newWidth;
                     $upload->newHeight = $newHeight;
                     $upload->resize();
                     $imageUrl = $upload->resizedImgName;
-                    $data     = array(
+                    $data = array(
                         'title'        => $_POST['title'],
                         'url'          => $imageUrl,
                         'date_added'   => time(),
@@ -276,12 +276,12 @@ if ($page == 'admin') {
 }
 
 if (null === $template) {
-    $vars['pageTitle']  = 'You\'re lost? Well so are we!';
+    $vars['pageTitle'] = 'You\'re lost? Well so are we!';
     $template = '@frontend/404.html';
 }
 
 // Set current page for template
-$vars['page']     = $page;
+$vars['page'] = $page;
 $vars['metadata'] = $metadata;
 
 // Render template

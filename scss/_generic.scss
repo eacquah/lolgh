@@ -68,22 +68,23 @@ footer {
 }
 
 #container .item {
-  width: 25%;
+  width: 33%;
 }
 
 #container .item.w2 {
-  width: 50%;
+  width: 66%;
 }
 
 .custom-panel {
   @include panel(
     // Sets the panel background color. Default: $panel-pg
-  $bg:#cccccc,
+  $bg:#FFFFFF,
     // Sets the panel padding amount. Default: $panel-padding
-//  $padding:5px,
+  //  $padding:5px,
     // Sets the font color based on the darkness of the bg & resets header line-heights for panels. Default: $panel-header-adjust
   $adjust:true
   );
-  border-radius: 5px;
+  margin: 2px 0;
+  border: 2px solid;
   text-align: center;
 }
