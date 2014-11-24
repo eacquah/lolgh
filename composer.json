@@ -1,6 +1,7 @@
 {
     "require": {
         "twig/twig": "1.*",
-        "jublonet/codebird-php": "~2.6"
+        "jublonet/codebird-php": "~2.6",
+        "liip/url-auto-converter-bundle": "dev-master"
     }
 }

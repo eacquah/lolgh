@@ -37,10 +37,14 @@ switch ($page) {
     case '':
         // Custom meta data
         $pageUrl = $baseUrl;
+        $recentToon = $dao->fetchRecentToon();
+        $recentComic = $dao->fetchRecentComic();
 
         $template = '@frontend/index.html';
         $vars['pageTitle'] = 'A laugh a day...';
         $vars['tweets'] = $twitter->getTimeLine();
+        $vars['recentToon'] = $recentToon;
+        $vars['recentComic'] = $recentComic;
         break;
 
     case 'contact':

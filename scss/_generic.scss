@@ -68,7 +68,7 @@ footer {
 }
 
 #container .item {
-  width: 33%;
+  width: 50%;
 }
 
 #container .item.w2 {
@@ -84,7 +84,7 @@ footer {
     // Sets the font color based on the darkness of the bg & resets header line-heights for panels. Default: $panel-header-adjust
   $adjust:true
   );
-  margin: 2px 0;
+//  margin: 2px 0;
   border: 2px solid;
   text-align: center;
 }
