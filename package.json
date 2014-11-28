@@ -1,0 +1,30 @@
+{
+  "name": "lolgh",
+  "version": "1.0.0",
+  "description": "lolgh website",
+  "main": "index.js",
+  "dependencies": {
+    "grunt": "^0.4.5"
+  },
+  "devDependencies": {
+    "grunt": "~0.4.1",
+    "grunt-contrib-copy": "~0.4.1",
+    "grunt-contrib-uglify": "^0.6.0",
+    "grunt-contrib-watch": "~0.5.3",
+    "grunt-sass": "~0.8.0",
+    "node-sass": "~0.7.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/eacquah/lolgh.git"
+  },
+  "author": "manny",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/eacquah/lolgh/issues"
+  },
+  "homepage": "https://github.com/eacquah/lolgh"
+}
