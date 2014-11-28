@@ -7,10 +7,6 @@ $db = new \Lib\Db($dbFile);
 $dao = new \Lib\Dao();
 $dao->setDb($db);
 
-$timeLine = $twitter->getTimeLine();
-//var_dump($timeLine); die();
-//var_dump($timeLine[1]); die();
-
 $page = isset($_GET['page']) ? strip_tags($_GET['page']) : '';
 $param = isset($_GET['param']) ? strip_tags($_GET['param']) : 0;
 
@@ -22,14 +18,14 @@ $baseUrl = 'http://' . $_SERVER['HTTP_HOST'];
 $metadata = array(
     'ogTitle'            => 'Lolgh',
     'ogType'             => 'website',
-    'ogImage'            => '',
-    'ogUrl'              => '',
-    'ogDescription'      => '',
+    'ogImage'            => $baseUrl . '/img/icon.png',
+    'ogUrl'              => $baseUrl,
+    'ogDescription'      => 'The LolGH strips are typically random and unordered strips depicting some isolated, stupid and funny events in Ghana, Africa and the world. Just jokes really!!! :)',
     'twitterCard'        => 'summary',
-    'twitterUrl'         => '',
-    'twitterTitle'       => '',
-    'twitterDescription' => '',
-    'twitterImage'       => '',
+    'twitterUrl'         => $baseUrl,
+    'twitterTitle'       => 'LolGH',
+    'twitterDescription' => 'The LolGH strips are typically random and unordered strips depicting some isolated, stupid and funny events in Ghana, Africa and the world. Just jokes really!!! :)',
+    'twitterImage'       => $baseUrl . '/img/icon.png',
 );
 
 // Frontend Controller

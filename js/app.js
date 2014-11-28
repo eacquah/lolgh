@@ -16,11 +16,11 @@ $(function() {
         //alert('test');
     }
 
-    $('#container').imagesLoaded( function(){
+    /*$('#container').imagesLoaded( function(){
         $('#container').masonry({
             itemSelector: '.item',
             isAnimated: true,
             isFitWidth: true
         });
-    })
+    })*/
 });

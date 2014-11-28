@@ -23537,24 +23537,25 @@ footer {
   line-height: 1.4;
 }
 
-@media (max-width: 700px) {
-  /* line 2, ../scss/_responsive.scss */
+/* max-width 640px, mobile-only styles, use when QAing mobile issues */
+@media only screen and (max-width: 64em) {
+  /* line 6, ../scss/_responsive.scss */
   body {
     background: none;
   }
 
-  /* line 5, ../scss/_responsive.scss */
+  /* line 9, ../scss/_responsive.scss */
   .main {
     text-align: center;
     padding-top: 60px;
   }
 
-  /* line 9, ../scss/_responsive.scss */
+  /* line 13, ../scss/_responsive.scss */
   .comic-nav {
     text-align: center !important;
   }
 
-  /* line 12, ../scss/_responsive.scss */
+  /* line 16, ../scss/_responsive.scss */
   .responsive-button {
     border-style: solid;
     border-width: 0px;
@@ -23588,13 +23589,26 @@ footer {
   .responsive-button:hover, .responsive-button:focus {
     color: #FFFFFF;
   }
+
+  /* line 19, ../scss/_responsive.scss */
+  .addthis_sharing_toolbox {
+    display: none;
+  }
 }
-@media (min-width: 700px) {
-  /* line 18, ../scss/_responsive.scss */
+@media only screen and (min-width: 40.063em) and (max-width: 64em) {
+  /* line 25, ../scss/_responsive.scss */
   .at4-follow-container {
     display: none;
   }
 }
+/* min-width 641px and max-width 1024px, use when QAing tablet-only issues */
+@media only screen and (min-width: 64.063em) {
+  /* line 32, ../scss/_responsive.scss */
+  .at4-follow-container {
+    display: none;
+  }
+}
+/* min-width 1025px, large screens */
 /* line 1, ../scss/_layout.scss */
 html {
   position: relative;

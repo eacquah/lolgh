@@ -21,27 +21,8 @@
             </div>
         </div>
         <div class="clearfix"></div>
-        <!--<div id="container" class="js-isotope"
-             data-isotope-options='{ "columnWidth": 600, "itemSelector": ".item" }'>
-            <div class="item"><img src="http://placehold.it/200x300&text=[img]"/></div>
-            <div class="item"><img src="http://placehold.it/200x400&text=[img2]"/></div>
-            <div class="item"><img src="http://placehold.it/200x200&text=[img3]"/></div>
-            <div class="item"><img src="http://placehold.it/200x300&text=[img5]"/></div>
-            <div class="item"><img src="http://placehold.it/200x500&text=[img7]"/></div>
-        </div>-->
         <div class="large-12 columns">
             <h2>Latest Tweets!</h2>
-            <!--{% if tweets|length %}
-            <div id="container" class="js-isotope"
-                 data-isotope-options='{ "columnWidth": 600, "itemSelector": ".item" }'>
-                {% for tweet in tweets %}
-                <div class="item custom-panel">
-                    &lt;!&ndash;<img src="http://placehold.it/200x300&text=[{{ tweet.text }}]"/>&ndash;&gt;
-                    <p>{{ tweet.text }}</p>
-                </div>
-                {% endfor %}
-            </div>
-            {% endif %}-->
             {% if tweets|length %}
                 {% for tweet in tweets %}
                     {% if tweet.text %}
@@ -52,15 +33,6 @@
                 {% endfor %}
             {% endif %}
         </div>
-
-        <!--<div class="row">-->
-            <!--<div class="row">-->
-                <!--<a class="twitter-timeline" href="https://twitter.com/Lol_GH"-->
-                   <!--data-widget-id="514071101291249665"-->
-                   <!--data-tweet-limit="8"></a>-->
-                <!--<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>-->
-            <!--</div>-->
-        <!--</div>-->
     </div>
 
     {% include '@frontend/sidebar.html' %}

@@ -1,4 +1,8 @@
-@media (max-width: 700px) {
+// Small screens
+@media only screen and (max-width: 40em) { } /* max-width 640px, mobile-only styles, use when QAing mobile issues */
+
+// Medium screens
+@media only screen and (max-width: 64em) {
   body {
     background: none;
   }
@@ -12,10 +16,20 @@
   .responsive-button {
     @include button($button-sml, $primary-color, 0px, false, false, false);
   }
-}
-
-@media (min-width: 700px) {
-  .at4-follow-container {
+  .addthis_sharing_toolbox {
     display: none;
   }
 }
+
+@media only screen and (min-width: 40.063em) and (max-width: 64em) {
+  .at4-follow-container {
+    display: none;
+  }
+}/* min-width 641px and max-width 1024px, use when QAing tablet-only issues */
+
+// Large screens
+@media only screen and (min-width: 64.063em) {
+  .at4-follow-container {
+    display: none;
+  }
+} /* min-width 1025px, large screens */
