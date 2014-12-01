@@ -10,8 +10,7 @@ $(function() {
 
     var ua = navigator.userAgent.toLowerCase();
     var isAndroid = ua.indexOf("android") > -1; //&& ua.indexOf("mobile");
-    //if(isAndroid && (typeof $.cookie('android') === 'undefined' || $.cookie('android') === null)) {
-    if(!isAndroid) {
+    if(isAndroid && (typeof $.cookie('android') === 'undefined' || $.cookie('android') === null)) {
         // Show download app modal!
         $('#download-app-modal').foundation('reveal', 'open');
         $.cookie('android', 1, { expires: 7 });
