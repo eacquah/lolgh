@@ -23507,10 +23507,10 @@ footer {
 .custom-panel {
   border-style: solid;
   border-width: 1px;
-  border-color: #e3e3e3;
+  border-color: #d8d8d8;
   margin-bottom: 1.25rem;
   padding: 1.25rem;
-  background: #FFFFFF;
+  background: #f2f2f2;
   color: #333333;
   border: 2px solid;
   text-align: center;
@@ -23535,6 +23535,29 @@ footer {
 /* line 69, ../bower_components/foundation/scss/foundation/components/_panels.scss */
 .custom-panel h1.subheader, .custom-panel h2.subheader, .custom-panel h3.subheader, .custom-panel h4.subheader, .custom-panel h5.subheader, .custom-panel h6.subheader {
   line-height: 1.4;
+}
+
+/* line 88, ../scss/_generic.scss */
+.overlay {
+  background: rgba(0, 0, 0, 0.75);
+  text-align: center;
+  padding: 45px 0 66px 0;
+  opacity: 0;
+  -webkit-transition: opacity .25s ease;
+  -moz-transition: opacity .25s ease;
+}
+
+/* line 97, ../scss/_generic.scss */
+.overlay-box:hover .overlay {
+  opacity: 1;
+}
+
+/* line 101, ../scss/_generic.scss */
+.view {
+  font-family: Helvetica;
+  font-weight: 900;
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 96px;
 }
 
 /* max-width 640px, mobile-only styles, use when QAing mobile issues */

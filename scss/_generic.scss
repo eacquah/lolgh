@@ -12,7 +12,7 @@ h1, h2, h3, h4 {
   font-family: 'Bangers', 'Open Sans', 'Helvetica';
 }
 
-.top-bar-section ul li > a{
+.top-bar-section ul li > a {
   font-family: 'Bangers', 'Open Sans', 'Helvetica';
 }
 
@@ -38,7 +38,7 @@ iframe[id^='twitter-widget-'] {
 
 .fb-like-box iframe {
   width: 100% !important;
-  height: 100%! important;
+  height: 100% ! important;
   z-index: 1;
 }
 
@@ -50,7 +50,7 @@ iframe[id^='twitter-widget-'] {
   min-height: 40px;
 }
 
-.centered{
+.centered {
   text-align: center;
 }
 
@@ -59,7 +59,7 @@ iframe[id^='twitter-widget-'] {
   overflow: hidden;
 }
 
-.secondary-btn{
+.secondary-btn {
   background: #333;
 }
 
@@ -77,14 +77,30 @@ footer {
 
 .custom-panel {
   @include panel(
-    // Sets the panel background color. Default: $panel-pg
-  $bg:#FFFFFF,
-    // Sets the panel padding amount. Default: $panel-padding
-  //  $padding:5px,
-    // Sets the font color based on the darkness of the bg & resets header line-heights for panels. Default: $panel-header-adjust
-  $adjust:true
+    // Sets the panel background color. Default: $panel-pg $bg: #FFFFFF,
+    // Sets the panel padding amount. Default: $panel-padding //  $padding:5px, // Sets the font color based on the darkness of the bg & resets header line-heights for panels. Default: $panel-header-adjust $adjust: true
   );
-//  margin: 2px 0;
+  //  margin: 2px 0;
   border: 2px solid;
   text-align: center;
+}
+
+.overlay {
+  background: rgba(0, 0, 0, .75);
+  text-align: center;
+  padding: 45px 0 66px 0;
+  opacity: 0;
+  -webkit-transition: opacity .25s ease;
+  -moz-transition: opacity .25s ease;
+}
+
+.overlay-box:hover .overlay {
+  opacity: 1;
+}
+
+.view {
+  font-family: Helvetica;
+  font-weight: 900;
+  color: rgba(255, 255, 255, .85);
+  font-size: 96px;
 }

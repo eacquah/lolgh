@@ -8,8 +8,13 @@
 <div class="row main">
     <div class="large-9 medium-12 small-12 columns">
         <div class="large-6 columns">
-            <h3>Latest Comic!</h3>
-            <a href="/comic/{{ recentComic.comicId }}" title="View latest comic"><img src="http://lolgh.com/cms/content/lol_gh/{{ recentComic.url }}"/></a>
+            <div class="overlay-box">
+                <h3>Latest Comic!</h3>
+                <a href="/comic/{{ recentComic.comicId }}" title="View latest comic"><img src="http://lolgh.com/cms/content/lol_gh/{{ recentComic.url }}"/></a>
+                <div class="overlay">
+                    <span class="view">+</span>
+                </div>
+            </div>
         </div>
         <div class="large-6 columns">
             <h3>Latest Toon!</h3>
