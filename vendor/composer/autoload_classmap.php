@@ -7,4 +7,5 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'Codebird\\Codebird' => $vendorDir . '/jublonet/codebird-php/src/codebird.php',
+    'SessionHandlerInterface' => $vendorDir . '/symfony/http-foundation/Symfony/Component/HttpFoundation/Resources/stubs/SessionHandlerInterface.php',
 );
