@@ -15,12 +15,10 @@
         </div>
         <div class="large-6 columns">
             <h3>Latest Toon!</h3>
-            <div class="flex-video widescreen vimeo">
-                <a href="/toon/{{ recentToon.toonId }}">
-                    <img src="http://img.youtube.com/vi/{{ recentToon.url }}/mqdefault.jpg"/>
-                    <p>{{ column.title }}</p>
-                </a>
-            </div>
+            <a href="/toon/{{ recentToon.toonId }}">
+                <img src="http://img.youtube.com/vi/{{ recentToon.url }}/mqdefault.jpg"/>
+                <p>{{ column.title }}</p>
+            </a>
         </div>
         <div class="clearfix"></div>
         <div class="large-12 columns">
@@ -28,8 +26,9 @@
             {% if tweets|length %}
                 {% for tweet in tweets %}
                     {% if tweet.text %}
-                    <div class="panel">
-                        <p><i class="fa fa-twitter fa-4x"></i>{{ tweet.text }}</p>
+                    <div class="tweet-panel">
+                        <div class="corner-img"><i class="fa fa-twitter-square fa-3x" style="color: #0078a0"></i></div>
+                        <p>{{ tweet.text }}</p>
                     </div>
                     {% endif %}
                 {% endfor %}

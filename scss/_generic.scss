@@ -1,10 +1,6 @@
-@import url('http://fonts.googleapis.com/css?family=Open+Sans');
-@import url('http://fonts.googleapis.com/css?family=Classic+Comic');
-@import url('http://fonts.googleapis.com/css?family=Bangers');
-
 body {
   font-family: 'Bangers', 'Open Sans', 'Helvetica';
-  background: url('../img/left-banner.gif') repeat-y center left fixed, url('../img/right-banner.gif') repeat-y center right fixed;
+  background: url('../img/left-banner.gif') repeat-y fixed left , url('../img/right-banner.gif') repeat-y fixed right;
   background-size: 20% auto, 20% auto;
 }
 
@@ -38,7 +34,7 @@ iframe[id^='twitter-widget-'] {
 
 .fb-like-box iframe {
   width: 100% !important;
-  height: 100% ! important;
+  height: 100% !important;
   z-index: 1;
 }
 
@@ -55,16 +51,12 @@ iframe[id^='twitter-widget-'] {
 }
 
 .sidebar {
-  height: 100% important;
+  height: 100% !important;
   overflow: hidden;
 }
 
 .secondary-btn {
   background: #333;
-}
-
-footer {
-  z-index: 999;
 }
 
 #container .item {
@@ -77,30 +69,26 @@ footer {
 
 .custom-panel {
   @include panel(
-    // Sets the panel background color. Default: $panel-pg $bg: #FFFFFF,
-    // Sets the panel padding amount. Default: $panel-padding //  $padding:5px, // Sets the font color based on the darkness of the bg & resets header line-heights for panels. Default: $panel-header-adjust $adjust: true
+    // Sets the panel background color. Default: $panel-pg $bg: #FFFFFF, // Sets the panel padding amount. Default: $panel-padding //  $padding:5px, // Sets the font color based on the darkness of the bg & resets header line-heights for panels. Default: $panel-header-adjust $adjust: true
   );
   //  margin: 2px 0;
   border: 2px solid;
   text-align: center;
 }
 
-.overlay {
-  background: rgba(0, 0, 0, .75);
-  text-align: center;
-  padding: 45px 0 66px 0;
-  opacity: 0;
-  -webkit-transition: opacity .25s ease;
-  -moz-transition: opacity .25s ease;
+.tweet-panel {
+  @include panel(
+    // Sets the panel background color. Default: $panel-pg $bg: #FFFFFF, // Sets the panel padding amount. Default: $panel-padding //  $padding:5px, // Sets the font color based on the darkness of the bg & resets header line-heights for panels. Default: $panel-header-adjust $adjust: true
+  $bg: #FFFFFF
+  );
+  //  margin: 2px 0;
+  border: 1px dashed #0078a0;
+  text-align: left;
+  position: relative;
 }
 
-.overlay-box:hover .overlay {
-  opacity: 1;
-}
-
-.view {
-  font-family: Helvetica;
-  font-weight: 900;
-  color: rgba(255, 255, 255, .85);
-  font-size: 96px;
+.corner-img {
+  position: absolute;
+  top: -20px;
+  left: -20px;
 }

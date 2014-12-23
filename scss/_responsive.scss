@@ -1,5 +1,8 @@
 // Small screens
-@media only screen and (max-width: 40em) { } /* max-width 640px, mobile-only styles, use when QAing mobile issues */
+@media only screen and (max-width: 40em) {
+}
+
+/* max-width 640px, mobile-only styles, use when QAing mobile issues */
 
 // Medium screens
 @media only screen and (max-width: 64em) {
@@ -10,7 +13,7 @@
     text-align: center;
     padding-top: 60px;
   }
-  .comic-nav{
+  .comic-nav {
     text-align: center !important;
   }
   .responsive-button {
@@ -25,11 +28,22 @@
   .at4-follow-container {
     display: none;
   }
-}/* min-width 641px and max-width 1024px, use when QAing tablet-only issues */
+  #at4m-dock, .at4m-dock-toggle, #at4m-menu {
+    display: none;
+  }
+}
+
+/* min-width 641px and max-width 1024px, use when QAing tablet-only issues */
 
 // Large screens
 @media only screen and (min-width: 64.063em) {
   .at4-follow-container {
     display: none;
   }
-} /* min-width 1025px, large screens */
+
+  #at4m-dock, .at4m-dock-toggle, #at4m-menu {
+    display: none;
+  }
+}
+
+/* min-width 1025px, large screens */

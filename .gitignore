@@ -1,6 +1,6 @@
-/bower_components/*
-/.sass-cache/*
+bower_components/*
+.sass-cache/*
 *.DS_Store
 .idea/*
-/templates/cache/*
+templates/cache/*
 img/comics/*
