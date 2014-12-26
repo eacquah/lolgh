@@ -46,6 +46,7 @@ switch ($page) {
     case 'contact':
         if ($_POST) {
             $subject = 'Lolgh Contact';
+            array_walk_recursive($_POST, 'mysql_real_escape_string');
             $from    = strip_tags($_POST["email"]); // sender
             $name    = strip_tags($_POST["name"]);
             $message = strip_tags($_POST["msg"]);
