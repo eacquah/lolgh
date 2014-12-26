@@ -44,7 +44,7 @@ switch ($page) {
         break;
 
     case 'contact':
-        if (isset($_POST['email'])) {
+        if ($_POST) {
             $subject = 'Lolgh Contact';
             $from    = strip_tags($_POST["email"]); // sender
             $name    = strip_tags($_POST["name"]);
