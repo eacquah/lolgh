@@ -28,8 +28,7 @@
             {% for comic in comics %}
                 <tr>
                     <td>{{ comic.releaseDate|date("D d-M-y")}}</td>
-                    <!--<td><img src="http://placehold.it/100x100&text=[img]"/></td>-->
-                    <td><img src="http://lolgh.com/cms/content/lol_gh/{{ comic.url }}" width="120px"/></td>
+                    <td><img src="http://lolgh.com/img/comics/{{ comic.url }}" width="120px"/></td>
                     <td>{{ comic.title }}</td>
                     <td>{{ comic.dateAdded|date("D d-M-y") }}</td>
                     <td><a href="/admin/comic/del-{{ comic.comicId }}"

@@ -118,13 +118,13 @@ switch ($page) {
             // Custom meta data
             $pageUrl                        = $baseUrl . '/comic/' . $comic->getComicId();
             $metadata['ogTitle']            = $comic->getTitle();
-            $metadata['ogImage']            = $comic->getUrl();
+            $metadata['ogImage']            = 'http://lolgh.com/img/comics/' . $comic->getUrl();
             $metadata['ogUrl']              = $pageUrl;
             $metadata['ogDescription']      = $comic->getTitle();
             $metadata['twitterUrl']         = $pageUrl;
             $metadata['twitterTitle']       = $comic->getTitle();
             $metadata['twitterDescription'] = $comic->getTitle();
-            $metadata['twitterImage']       = $comic->getUrl();
+            $metadata['twitterImage']       = 'http://lolgh.com/img/comics/' . $comic->getUrl();
 
             // Get page vars
             $comicId     = $comic->getComicId();
