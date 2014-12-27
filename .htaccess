@@ -2,6 +2,9 @@ Options +FollowSymLinks -MultiViews
 RewriteEngine On
 RewriteBase /
 
+RewriteCond %{HTTP_HOST} ^www\.(.*)$ [NC]
+RewriteRule ^(.*)$ http://%1/$1 [R=301,L]
+
 <ifModule mod_headers.c>
     Header set Access-Control-Allow-Origin: *
 </ifModule>
