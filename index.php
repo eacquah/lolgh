@@ -279,6 +279,7 @@ if ($page == 'admin') {
 if (null === $template) {
     $vars['pageTitle'] = 'You\'re lost? Well so are we!';
     $template          = '@frontend/404.html';
+    http_response_code(404);
 }
 
 // Set current page for template

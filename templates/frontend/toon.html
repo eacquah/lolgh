@@ -29,7 +29,7 @@
                                 {% for column in row %}
                                 <li>
                                     <a href="/toon/{{ column.toonId }}">
-                                        <img src="http://img.youtube.com/vi/{{ column.url }}/mqdefault.jpg"/>
+                                        <img alt="{{ column.title }}" title="{{ column.title }}" src="http://img.youtube.com/vi/{{ column.url }}/mqdefault.jpg"/>
                                         <p>{{ column.title }}</p>
                                     </a>
                                 </li>
