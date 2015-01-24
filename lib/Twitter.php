@@ -44,7 +44,7 @@ class Twitter
           'exclude_replies' => true,
           'include_rts' => false,
           'include_entities'=> true,
-          'count' => '20',
+          'count' => '10',
         );
         return (array)$this->twitter->statuses_userTimeline($params);
     }

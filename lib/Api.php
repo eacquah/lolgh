@@ -103,7 +103,7 @@ class Api
             case 'GET':
                 $params = $this->getParams();
                 if (in_array('comics', $params)) {
-                    $comics = $this->getDao()->fetchBatch('comic', 0, 30);
+                    $comics = $this->getDao()->fetchBatch('comic', 0, 20);
                     $return = array();
                     foreach ($comics as $comic) {
                         $return[] = $comic->jsonSerialize();
