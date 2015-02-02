@@ -234,7 +234,7 @@ if ($page == 'admin') {
                     $upload->newWidth  = $newWidth;
                     $upload->newHeight = $newHeight;
                     $upload->resize();
-                    $imageUrl = $upload->$source_file;
+                    $imageUrl = $upload->resizedImgName;
                     $data     = array(
                         'title'        => $_POST['title'],
                         'url'          => $imageUrl,
